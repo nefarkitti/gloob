@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    background: #008080;
+}
+
+img {
+    image-rendering: pixelated;
+}
+
+.overlay,
+.debug {
+
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.078);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+
+}
+
+.debug {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.window-icon {
+    margin-right: 10px;
+}
+
+.window-icon:not(:has(*)) {
+    margin: 0;
+}
+
+.window-body {
+    display: flex;
+}
+
+.window-content {
+    width: 100%;
+    height: 100%;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons * {
+    margin: 0px 1px;
+}
+
+.buttons.right {
+    justify-content: right;
+}
+
+.buttons.left {
+    justify-content: left;
+}
+
+.buttons.center {
+    justify-content: center;
+}
+
+#petui {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+.right {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.extra {
+    filter: opacity(50%);
+    font-style: italic;
+}
+
+p.extra {
+    margin: 5px 0px;
+}
+
+.statlist {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.statlist .stat {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.title-bar-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.window-icon img {
+    max-width: 50px;
+}
+
+.overlay .window {
+    margin-right: 10px;
+}
+
+.progress-bar {
+    width: 100px;
+    overflow: hidden;
+    background: white;
+
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: inset -2px -2px #dfdfdf, inset 2px 2px grey;
+    box-sizing: border-box;
+    padding: 4px;
+}
+
+.bar {
+    background-color: blue;
+    height: 100%;
+    width: 0%;
+    z-index: 99;
+}
+
+#pethunger {
+    background-color: brown;
+}
+
+#petthirst {
+    background-color: blue;
+}
+
+#petdirt {
+    background-color: grey;
+}
