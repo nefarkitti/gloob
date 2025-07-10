@@ -2,6 +2,7 @@ const DISEASE_LIST = [
     "Leech Seed",
     "Leukemia",
     "Tape Worm",
+    "Lazy"
 ]
 
 function addDisease(disease, diseases) {
@@ -21,6 +22,8 @@ function setDiseaseMult(disease, mults) {
         case "Leukemia":
             // positive health in half
             break
+        case "Lazy":
+            mults.tiredness += 1.5
         case "Tape Worm":
             mults.hunger += 1
             break

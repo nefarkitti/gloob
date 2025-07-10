@@ -36,7 +36,7 @@ function addMessage(txt) {
 }
 
 let pet
-let debugmult = 1
+let debugmult = 0
 let variant
 
 const decay = {
@@ -69,8 +69,40 @@ function attemptPurchase(type, index) {
         let item = FOODS[index]
 
         if (data.balance >= item.price) {
-            
+
             purchase(item)
+
+        }
+
+    }
+    if (type == "care") {
+
+        let item = CARES[index]
+
+        if (data.balance >= item.price) {
+
+            purchase(item)
+
+        }
+
+    }
+    if (type == "appliance") {
+
+        console.log("buying appliance")
+
+        let item = APPLIANCES[index]
+
+        if (!data.appliances.includes(item.name)) {
+
+            console.log("not present")
+
+            if (data.balance >= item.price) {
+
+                console.log("afforable")
+
+                purchase(item)
+
+            }
 
         }
 
@@ -82,17 +114,17 @@ function updatePetDisplay() {
 
     pet.hunger = clamp(pet.hunger, -10, 100)
     pet.thirst = clamp(pet.thirst, 0, 100)
-    pet.dirt = clamp(pet.dirt, 0, 100)
+    pet.dirt = clamp(pet.dirt, -20, 100)
     pet.tiredness = clamp(pet.tiredness, 0, 110)
     pet.happiness = clamp(pet.happiness, -10, 100)
     pet.health = clamp(pet.health, 0, 100)
 
-    health.style.width = `${pet.health}%`
-    hunger.style.width = `${pet.hunger}%`
-    thirst.style.width = `${pet.thirst}%`
-    dirt.style.width = `${pet.dirt}%`
-    tiredness.style.width = `${pet.tiredness}%`
-    happiness.style.width = `${pet.happiness}%`
+    health.style.width = `${clamp(pet.health, 0, 100)}%`
+    hunger.style.width = `${clamp(pet.hunger, 0, 100)}%`
+    thirst.style.width = `${clamp(pet.thirst, 0, 100)}%`
+    dirt.style.width = `${clamp(pet.dirt, 0, 100)}%`
+    tiredness.style.width = `${clamp(pet.tiredness, 0, 100)}%`
+    happiness.style.width = `${clamp(pet.happiness, 0, 100)}%`
     race.innerText = variants[pet.variant].name.toUpperCase()
 
     let t = convertSeconds(pet.age)
@@ -111,7 +143,7 @@ function updatePetDisplay() {
         <article role="tabpanel">
                                     <h5>${care.name}</h5>
                                     <span style="color: green;">$${care.price}</span>
-                                    <button>BUY</button>
+                                    <button onclick="attemptPurchase('care', ${carei})">BUY</button>
                                     <div class="effects" id="care-${carei}">
                                         <span>DEATH</span>
                                         <span>DEATH</span>
@@ -154,12 +186,20 @@ function updatePetDisplay() {
 
         foodi++
     })
+    let disable = ""
+    let hiddentext = ""
+    let buttontext = "BUY"
     APPLIANCES.forEach(appliance => {
+        if (data.appliances.includes(appliance.name)) {
+            disable = "disabled"
+            buttontext = "PURCHASED"
+            hiddentext = "display:none;"
+        }
         applianceMarket.innerHTML += `
         <article role="tabpanel">
                                     <h5>${appliance.name}</h5>
-                                    <span style="color: green;">$${appliance.price}</span>
-                                    <button>BUY</button>
+                                    <span style="color: green;${hiddentext}">$${appliance.price}</span>
+                                    <button onclick="attemptPurchase('appliance', ${appi})" ${disable}>${buttontext}</button>
                                     <div class="effects" id="appliance-${appi}">
                                         <span>DEATH</span>
                                         <span>DEATH</span>
@@ -190,6 +230,8 @@ function tick() {
     if (ticks > 1024) {
         ticks = 1
     }
+
+    procAppliances(ticks)
 
     tab.innerText = pet.name
 
@@ -274,7 +316,7 @@ function tick() {
         }
     }
     if (ticks % 1 == 0) {
-        data.balance++
+        data.balance += 2
     }
 
     updatePetDisplay()
