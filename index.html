@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="style.css">
     <!--<script src="https://tholman.com/blue-screen-of-death/bsod.js" defer></script>-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/disease.js" defer></script>
+    <script src="scripts/time.js" defer></script>
     <script src="scripts/main.js" defer></script>
     <script src="scripts/popup.js"></script>
     <script src="scripts/setup.js" defer></script>
@@ -30,7 +32,19 @@
 
                         <div class="stat extra">
                             <span>SPECIES</span>
-                            <span>MOSS BALL</span>
+                            <span id="petrace">MOSS BALL</span>
+                        </div>
+
+                        <div class="stat extra">
+                            <span>AGE</span>
+                            <span id="petage">0s</span>
+                        </div>
+
+                        <div class="stat">
+                            <span>HEALTH</span>
+                            <div class="progress-bar">
+                                <div class="bar" id="pethealth"></div>
+                            </div>
                         </div>
 
                         <div class="stat">
@@ -55,28 +69,54 @@
                         </div>
 
                         <div class="stat">
-                            <span>CONDITION</span>
-                            <div class="progress-bar">
-                                <div class="bar"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="stat">
                             <span>TIREDNESS</span>
                             <div class="progress-bar">
-                                <div class="bar"></div>
+                                <div class="bar" id="pettiredness"></div>
                             </div>
                         </div>
 
                         <div class="stat">
                             <span>HAPPINESS</span>
                             <div class="progress-bar">
-                                <div class="bar"></div>
+                                <div class="bar" id="pethappiness"></div>
                             </div>
                         </div>
 
                     </div>
 
+                </div>
+            </div>
+
+            <div class="window" style="max-width: 200px;">
+                <div class="title-bar">
+                    <div class="title-bar-text">STATUS</div>
+                </div>
+                <div class="window-body">
+                    <div class="list" id="statuslist">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="window" style="max-width: 200px;">
+                <div class="title-bar">
+                    <div class="title-bar-text">DISEASES</div>
+                </div>
+                <div class="window-body">
+                    <div class="list" id="diseaselist">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="window">
+                <div class="title-bar">
+                    <div class="title-bar-text">debug</div>
+                </div>
+                <div class="window-body">
+                    <div class="buttons center">
+                        <button onclick="reset()">reset all data</button>
+                    </div>
                 </div>
             </div>
 

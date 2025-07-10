@@ -45,6 +45,7 @@ img {
 
 .buttons {
     display: flex;
+    width: 100%;
 }
 
 .buttons * {
@@ -134,16 +135,39 @@ p.extra {
     height: 100%;
     width: 0%;
     z-index: 99;
+    max-width: 100% !important;
+    min-width: 0% !important;
 }
 
 #pethunger {
     background-color: brown;
 }
-
+#pethealth {
+    background-color: green;
+}
 #petthirst {
     background-color: blue;
 }
 
 #petdirt {
     background-color: grey;
+}
+#pettiredness {
+    background-color: #008080;
+}
+#pethappiness {
+    background-color: rgb(236, 0, 208);
+}
+
+.left .window {
+    margin-bottom: 10px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.list span {
+    font-weight: bold;
+    margin: 0px 3px;
 }

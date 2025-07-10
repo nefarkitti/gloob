@@ -1,47 +1,135 @@
 [
 
     {
-        "name": "slug"
+        "name": "slug",
+
+        "hungermult": 0.5,
+        "thirstmult": 2,
+        "dirtmult": 2,
+        "conditionmult": 1,
+        "tiredmult": 0.7,
+        "happymult": 0.5
+
     },
     
     {
-        "name": "moss ball"
+        "name": "moss ball",
+        
+        "hungermult": 1.25,
+        "thirstmult": 1.25,
+        "dirtmult": 2,
+        "conditionmult": 1,
+        "tiredmult": 0.5,
+        "happymult": 0.3
+
     },
 
     {
-        "name": "floog"
+        "name": "floog",
+        
+        "hungermult": 1,
+        "thirstmult": 1,
+        "dirtmult": 1,
+        "conditionmult": 1,
+        "tiredmult": 1,
+        "happymult": 1
+
     },
 
     {
-        "name": "carbunj"
+        "name": "carbunj",
+        
+        "hungermult": 1.5,
+        "thirstmult": 0.8,
+        "dirtmult": 2,
+        "conditionmult": 1,
+        "tiredmult": 0.7,
+        "happymult": 1.2
+
     },
 
     {
-        "name": "mold colony"
+        "name": "mold colony",
+        
+        "hungermult": 3,
+        "thirstmult": 0.8,
+        "dirtmult": 1.1,
+        "conditionmult": 1,
+        "tiredmult": 1,
+        "happymult": 0
+
     },
 
     {
-        "name": "brain"
+        "name": "brain",
+        
+        "hungermult": 0.5,
+        "thirstmult": 0.5,
+        "dirtmult": 1.5,
+        "conditionmult": 1,
+        "tiredmult": 1.5,
+        "happymult": 2
+
     },
 
     {
-        "name": "worm"
+        "name": "worm",
+        
+        "hungermult": 0.9,
+        "thirstmult": 1.3,
+        "dirtmult": 0.4,
+        "conditionmult": 1,
+        "tiredmult": 1.2,
+        "happymult": 0.9
+
     },
 
     {
-        "name": "coffee"
+        "name": "coffee",
+        
+        "hungermult": 1,
+        "thirstmult": 1.75,
+        "dirtmult": 1,
+        "conditionmult": 1,
+        "tiredmult": 0.5,
+        "happymult": 1
+
     },
 
     {
-        "name": "rat"
+        "name": "rat",
+        
+        "hungermult": 2,
+        "thirstmult": 1.2,
+        "dirtmult": 0.8,
+        "conditionmult": 1,
+        "tiredmult": 0.9,
+        "happymult": 1.2
+
     },
     
     {
-        "name": "1nning"
+        "name": "1nning",
+        
+        "hungermult": 1,
+        "thirstmult": 1,
+        "dirtmult": 1,
+        "conditionmult": 1,
+        "tiredmult": 1,
+        "happymult": 1
+
     },
 
     {
-        "name": "klurb"
+        "name": "klurb",
+        
+        "hungermult": 1,
+        "thirstmult": 1.2,
+        "dirtmult": 1.5,
+        "conditionmult": 1,
+        "tiredmult": 1.1,
+        "happymult": 0.7
+
     }
 
     

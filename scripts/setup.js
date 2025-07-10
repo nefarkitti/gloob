@@ -17,6 +17,11 @@ function getRandomInt(max) {
 
 function reset() {
     graveyard.push(pet)
+
+    if (graveyard.length >= 6) {
+        graveyard.shift()
+    }
+
     save()
     localStorage.removeItem('nefgloob')
     location.reload()
@@ -32,8 +37,6 @@ function handleGloobName() {
 
         petnamer.remove()
 
-        let rolledVariant = variants[getRandomInt(0, variants.length - 1)]
-
         data = {
 
             "owner": tempsave.owner,
@@ -43,7 +46,7 @@ function handleGloobName() {
             "pet": {
 
                 "name": tempsave.petname,
-                "variant": rolledVariant.name,
+                "variant": getRandomInt(variants.length - 1),
 
                 "state": "alive",
 
@@ -54,6 +57,11 @@ function handleGloobName() {
                 "hunger": 100,
                 "thirst": 100,
                 "dirt": 0,
+                "tiredness": 0,
+                "happiness": 100,
+                "health": 100,
+
+                "diseases": [],
 
             }
 
@@ -125,7 +133,7 @@ function startup() {
     if (graveyard.length >= 1) {
         creator.appendChild(
             popup("gloob graveyard", `
-            <p>A list of all the Gloobs you've killed. You're a bad owner.</p>
+            <p>Here you will always see the last 5 Goobs you killed.</p>
             `, 300, "", true)
         )
     }
