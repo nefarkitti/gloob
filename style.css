@@ -142,9 +142,11 @@ p.extra {
 #pethunger {
     background-color: brown;
 }
+
 #pethealth {
     background-color: green;
 }
+
 #petthirst {
     background-color: blue;
 }
@@ -152,9 +154,11 @@ p.extra {
 #petdirt {
     background-color: grey;
 }
+
 #pettiredness {
     background-color: #008080;
 }
+
 #pethappiness {
     background-color: rgb(236, 0, 208);
 }
@@ -167,7 +171,97 @@ p.extra {
     display: flex;
     flex-wrap: wrap;
 }
+
 .list span {
     font-weight: bold;
     margin: 0px 3px;
+}
+
+.market-grid {
+    display: flex;
+    max-width: 798px;
+    width: 798px;
+    height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+
+.market-grid article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 5px;
+    max-width: 104px;
+    height: fit-content;
+}
+
+.market-grid article h5 {
+    margin: 5px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.market-grid article * {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.market-grid article .effects {
+    font-size: 8px;
+    margin-bottom: -10px;
+    text-align: left;
+    width: 100%;
+}
+
+.market-grid article .effects span {
+    margin-bottom: 0;
+}
+
+font {
+    margin: 0 !important;
+}
+
+.messagescontainer {
+    padding: 2px;
+    height: 150px;
+    margin-bottom: -3px;
+}
+
+.messages {
+    width: 100%;
+    height: 100%;
+    display: flexbox;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.message {
+    width: 95%;
+    padding: 4px;
+    box-sizing: border-box;
+
+    box-shadow: inset 1px 1px #fcfcfe, inset -1px -1px #fcfcfe, 1px 2px 2px 0 rgba(208, 206, 191, .75);
+    clear: both;
+    background: rgb(255, 228, 75);
+    border: 1px solid #919b9c;
+    position: relative;
+    z-index: 2;
+    margin-top: 5px;
+    animation-name: messageSpawn;
+    animation-duration: .4s;
+    animation-iteration-count: 1;
+    background: linear-gradient(180deg, #fcfcfe, #f4f3ee);
+}
+
+@keyframes messageSpawn {
+    from {
+        background: rgb(255, 228, 75);
+    }
+    to {
+        background: linear-gradient(180deg, #fcfcfe, #f4f3ee);
+    }
 }

@@ -1,6 +1,9 @@
 let data
 let graveyard = []
 let variants
+let CARES
+let FOODS
+let APPLIANCES
 
 let loader = popup("gloob", "<p>Loading... </p><progress style='width: 100%'></progress>")
 let creator
@@ -42,6 +45,9 @@ function handleGloobName() {
             "owner": tempsave.owner,
 
             "last": Date.now(),
+
+            "balance": 100,
+            "appliances": [],
 
             "pet": {
 
@@ -172,10 +178,25 @@ function save() {
 
 axios.get("json/variants.json").then(res => {
 
-    variants = res.data
+    axios.get("json/care.json").then(cares => {
 
-    console.log(variants)
+        axios.get("json/food.json").then(foods => {
 
-    load()
+            axios.get("json/appliances.json").then(appliances => {
+
+                variants = res.data
+                CARES = cares.data.sort((a, b) => a.price - b.price);
+                FOODS = foods.data.sort((a, b) => a.price - b.price);
+                APPLIANCES = appliances.data.sort((a, b) => a.price - b.price);
+
+                console.log(variants)
+
+                load()
+
+            })
+
+        })
+
+    })
 
 })

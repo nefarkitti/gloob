@@ -121,6 +121,78 @@
     },
 
     {
+        "name": "violet",
+        
+        "hungermult": 0.25,
+        "thirstmult": 2,
+        "dirtmult": 1,
+        "conditionmult": 1,
+        "tiredmult": 2,
+        "happymult": 1
+
+    },
+
+    {
+        "name": "dog",
+        
+        "hungermult": 0.8,
+        "thirstmult": 1.5,
+        "dirtmult": 2,
+        "conditionmult": 1,
+        "tiredmult": 2,
+        "happymult": 0.5
+
+    },
+
+    {
+        "name": "cat",
+        
+        "hungermult": 0.5,
+        "thirstmult": 0.8,
+        "dirtmult": 0.3,
+        "conditionmult": 1,
+        "tiredmult": 2.5,
+        "happymult": 0.1
+
+    },
+
+    {
+        "name": "moth",
+        
+        "hungermult": 0.8,
+        "thirstmult": 0.8,
+        "dirtmult": 1.2,
+        "conditionmult": 1,
+        "tiredmult": 2,
+        "happymult": 2
+
+    },
+
+    {
+        "name": "american woodcock",
+        
+        "hungermult": 3,
+        "thirstmult": 3,
+        "dirtmult": 4,
+        "conditionmult": 1,
+        "tiredmult": 5,
+        "happymult": 3
+
+    },
+
+    {
+        "name": "horse",
+        
+        "hungermult": 0.3,
+        "thirstmult": 0.5,
+        "dirtmult": 1,
+        "conditionmult": 1,
+        "tiredmult": 1.2,
+        "happymult": 10
+
+    },
+
+    {
         "name": "klurb",
         
         "hungermult": 1,

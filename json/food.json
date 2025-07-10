@@ -1,0 +1,111 @@
+[
+    {
+        "name": "Potato Chip",
+        "class": "food",
+        "price": 10,
+        "effects": {
+            "hunger": 2,
+            "thirst": -3
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲</font>",
+            "<font color='darkred'>Thirst ▼</font>"
+        ]
+    },
+    {
+        "name": "Salami Slice",
+        "class": "food",
+        "price": 5,
+        "effects": {
+            "hunger": 2,
+            "thirst": -10
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲</font>",
+            "<font color='darkred'>Thirst ▼▼</font>"
+        ]
+    },
+    {
+        "name": "Bread",
+        "class": "food",
+        "price": 20,
+        "effects": {
+            "hunger": 5,
+            "thirst": -3,
+            "happiness": 4
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲</font>",
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='darkred'>Thirst ▼</font>"
+        ]
+    },
+    {
+        "name": "Tap Water",
+        "class": "food",
+        "price": 5,
+        "effects": {
+            "hunger": -2,
+            "thirst": 5,
+            "happiness": -4
+        },
+        "lines": [
+            "<font color='green'>Thirst ▲</font>",
+            "<font color='darkred'>Hunger ▼</font>",
+            "<font color='darkred'>Happiness ▼</font>"
+        ]
+    },
+    {
+        "name": "Water",
+        "class": "food",
+        "price": 15,
+        "effects": {
+            "hunger": -4,
+            "thirst": 10,
+            "happiness": -4,
+            "health": 5
+        },
+        "lines": [
+            "<font color='green'>Health ▲</font>",
+            "<font color='green'>Thirst ▲</font>",
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='darkred'>Hunger ▼</font>"
+        ]
+    },
+    {
+        "name": "Taco",
+        "class": "food",
+        "price": 60,
+        "effects": {
+            "hunger": 15,
+            "thirst": -6,
+            "happiness": 10,
+            "tiredness": -10
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='darkred'>Thirst ▼</font>",
+            "<font color='darkred'>Tiredness ▼</font>"
+        ]
+    },
+    {
+        "name": "Burger",
+        "class": "food",
+        "price": 110,
+        "effects": {
+            "hunger": 25,
+            "thirst": -10,
+            "happiness": 15,
+            "tiredness": -15,
+            "health": -10
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='darkred'>Health ▼</font>",
+            "<font color='darkred'>Thirst ▼</font>",
+            "<font color='darkred'>Tiredness ▼</font>"
+        ]
+    }
+]

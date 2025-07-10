@@ -1,0 +1,93 @@
+[
+    {
+        "name": "PET",
+        "class": "care",
+        "price": 10,
+        "effects": {
+            "happiness": 10,
+            "tiredness": -5
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='green'>Tiredness ▼</font>"
+        ]
+    },
+    {
+        "name": "SLEEP",
+        "class": "care",
+        "price": 15,
+        "effects": {
+            "happiness": 5,
+            "tiredness": -5,
+            "health": 10
+        },
+        "lines": [
+            "<font color='green'>Health ▲▲</font>",
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='green'>Tiredness ▼</font>",
+            "<font color='darkred'>Dirt ▲</font>",
+            "<font class='extra'>Price and amount of Happiness / Tiredness / Health / Dirt depends on the amount of time selected. upon purchase.</font>"
+        ]
+    },
+    {
+        "name": "SINK BATH",
+        "class": "care",
+        "price": 20,
+        "effects": {
+            "happiness": 5,
+            "dirt": -15
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='green'>Dirt ▼</font>"
+        ]
+    },
+    {
+        "name": "SHOWER",
+        "class": "care",
+        "price": 40,
+        "effects": {
+            "happiness": 10,
+            "dirt": -30,
+            "health": 10
+        },
+        "lines": [
+            "<font color='green'>Health ▲</font>",
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='green'>Dirt ▼▼</font>"
+        ]
+    },
+    {
+        "name": "PILLS",
+        "class": "care",
+        "price": 80,
+        "effects": {
+            "happiness": -20,
+            "hunger": -10,
+            "thirst": -15,
+            "health": 10
+        },
+        "lines": [
+            "<font color='green'>50% chance to cure a random disease</font>",
+            "<font color='green'>Health ▲</font>",
+            "<font color='darkred'>Hunger ▼</font>",
+            "<font color='darkred'>Thirst ▼</font>",
+            "<font color='darkred'>Happiness ▼▼</font>"
+        ]
+    },
+    {
+        "name": "THE VACCINE",
+        "class": "care",
+        "price": 160,
+        "effects": {
+            "happiness": -10,
+            "health": 20
+        },
+        "lines": [
+            "<font color='green'>Cures a random disease</font>",
+            "<font color='green'>Health ▲</font>",
+            "<font color='darkred'>Happiness ▼</font>",
+            "<font class='extra' color='darkred'>Very small chance of contracting another disease on use</font>"
+        ]
+    }
+]

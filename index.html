@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="style.css">
     <!--<script src="https://tholman.com/blue-screen-of-death/bsod.js" defer></script>-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/appliances.js" defer></script>
     <script src="scripts/disease.js" defer></script>
     <script src="scripts/time.js" defer></script>
-    <script src="scripts/main.js" defer></script>
-    <script src="scripts/popup.js"></script>
+    <script src="scripts/popup.js" defer></script>
     <script src="scripts/setup.js" defer></script>
+    <script src="scripts/market.js" defer></script>
+    <script src="scripts/main.js" defer></script>
 </head>
 
 <body>
@@ -28,62 +30,116 @@
                 </div>
                 <div class="window-body">
 
-                    <div class="statlist">
+                    <div class="window-content">
+                        <div class="statlist">
 
-                        <div class="stat extra">
-                            <span>SPECIES</span>
-                            <span id="petrace">MOSS BALL</span>
-                        </div>
-
-                        <div class="stat extra">
-                            <span>AGE</span>
-                            <span id="petage">0s</span>
-                        </div>
-
-                        <div class="stat">
-                            <span>HEALTH</span>
-                            <div class="progress-bar">
-                                <div class="bar" id="pethealth"></div>
+                            <div class="stat extra">
+                                <span>SPECIES</span>
+                                <span id="petrace">MOSS BALL</span>
                             </div>
-                        </div>
 
-                        <div class="stat">
-                            <span>HUNGER</span>
-                            <div class="progress-bar">
-                                <div class="bar" id="pethunger"></div>
+                            <div class="stat extra">
+                                <span>AGE</span>
+                                <span id="petage">0s</span>
                             </div>
-                        </div>
 
-                        <div class="stat">
-                            <span>THIRST</span>
-                            <div class="progress-bar">
-                                <div class="bar" id="petthirst"></div>
+                            <div class="stat">
+                                <span>HEALTH</span>
+                                <div class="progress-bar">
+                                    <div class="bar" id="pethealth"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="stat">
-                            <span>DIRT</span>
-                            <div class="progress-bar">
-                                <div class="bar" id="petdirt"></div>
+                            <div class="stat">
+                                <span>HUNGER</span>
+                                <div class="progress-bar">
+                                    <div class="bar" id="pethunger"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="stat">
-                            <span>TIREDNESS</span>
-                            <div class="progress-bar">
-                                <div class="bar" id="pettiredness"></div>
+                            <div class="stat">
+                                <span>THIRST</span>
+                                <div class="progress-bar">
+                                    <div class="bar" id="petthirst"></div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="stat">
-                            <span>HAPPINESS</span>
-                            <div class="progress-bar">
-                                <div class="bar" id="pethappiness"></div>
+                            <div class="stat">
+                                <span>DIRT</span>
+                                <div class="progress-bar">
+                                    <div class="bar" id="petdirt"></div>
+                                </div>
                             </div>
+
+                            <div class="stat">
+                                <span>TIREDNESS</span>
+                                <div class="progress-bar">
+                                    <div class="bar" id="pettiredness"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat">
+                                <span>HAPPINESS</span>
+                                <div class="progress-bar">
+                                    <div class="bar" id="pethappiness"></div>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
 
+                </div>
+            </div>
+
+            <div class="window" style="max-width: 200px;">
+                <div class="title-bar">
+                    <div class="title-bar-text">Chat</div>
+                </div>
+                <div class="window-body">
+                    <div class="window-content">
+
+                        <article role="tabpanel" class="messagescontainer">
+
+                            <div class="messages" id="messages">
+                                <div class="message">
+                                    hey
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                                <div class="message">
+                                    heyn
+                                </div>
+                            </div>
+
+                        </article>
+
+                    </div>
                 </div>
             </div>
 
@@ -123,6 +179,58 @@
         </div>
 
         <div class="right">
+
+            <div class="window" style="width: max-content;">
+                <div class="title-bar">
+                    <div class="title-bar-text">Management</div>
+                    <div class="title-bar-controls">
+                    </div>
+                </div>
+                <div class="window-body">
+                    <div class="window-content">
+                        <span style="margin: 0;margin-bottom: 5px;display: block;" id="balance">Balance: 0</span>
+                        <menu role="tablist">
+                            <button aria-selected="true" aria-controls="care">Care</button>
+                            <button aria-controls="food">Food</button>
+                            <button aria-controls="marketplace">Marketplace</button>
+                        </menu>
+                        <article role="tabpanel" id="care">
+                            <h3 style="margin: 0;">Care</h3>
+
+                            <div class="market-grid" id="petmarket">
+
+                                <article role="tabpanel">
+                                    <h5>PET</h5>
+                                    <span style="color: green;">$500</span>
+                                    <button>BUY</button>
+                                    <span style="margin-bottom: -5px;"><b><i>EFFECTS</i></b></span>
+                                    <div class="effects">
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                    </div>
+                                </article>
+
+                            </div>
+
+                        </article>
+                        <article role="tabpanel" id="food" hidden="true">
+                            <h3 style="margin: 0;">Food</h3>
+                            <div class="market-grid" id="foodmarket">
+
+                            </div>
+                        </article>
+                        <article role="tabpanel" id="marketplace" hidden="true">
+                            <h3 style="margin: 0;">Marketplace</h3>
+                            <div class="market-grid" id="applianceMarket">
+
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
 
         </div>
 

@@ -12,10 +12,32 @@ let happiness = document.getElementById("pethappiness")
 let statuslist = document.getElementById("statuslist")
 let diseaselist = document.getElementById("diseaselist")
 
+let balanceEl = document.getElementById("balance")
+
+let careMarket = document.getElementById("petmarket")
+let foodMarket = document.getElementById("foodmarket")
+let applianceMarket = document.getElementById("applianceMarket")
+
 const tab = document.getElementById("title")
+const messages = document.getElementById("messages")
+
+messages.innerHTML = ``
+
+function addMessage(txt) {
+
+    let msg = document.createElement("div")
+    msg.classList.add("message")
+
+    msg.innerHTML = txt
+
+    messages.appendChild(msg)
+
+    messages.scrollTop = messages.scrollHeight
+}
 
 let pet
 let debugmult = 1
+let variant
 
 const decay = {
 
@@ -40,6 +62,22 @@ function clamp(val, min, max) {
 
 }
 
+function attemptPurchase(type, index) {
+
+    if (type == "food") {
+
+        let item = FOODS[index]
+
+        if (data.balance >= item.price) {
+            
+            purchase(item)
+
+        }
+
+    }
+
+}
+
 function updatePetDisplay() {
 
     pet.hunger = clamp(pet.hunger, -10, 100)
@@ -58,14 +96,100 @@ function updatePetDisplay() {
     race.innerText = variants[pet.variant].name.toUpperCase()
 
     let t = convertSeconds(pet.age)
-    age.innerText = `${t.d}d ${t.h}h ${t.m}m ${t.s}s`
+    age.innerText = `${t.h}h ${t.m}m ${t.s}s`
+
+    balanceEl.innerHTML = `<span style="color: green;">$${data.balance}</span>`
+
+    careMarket.innerHTML = ``
+    foodMarket.innerHTML = ``
+    applianceMarket.innerHTML = ``
+    let carei = 0
+    let foodi = 0
+    let appi = 0
+    CARES.forEach(care => {
+        careMarket.innerHTML += `
+        <article role="tabpanel">
+                                    <h5>${care.name}</h5>
+                                    <span style="color: green;">$${care.price}</span>
+                                    <button>BUY</button>
+                                    <div class="effects" id="care-${carei}">
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                    </div>
+                                </article>
+        `
+
+        document.getElementById(`care-${carei}`).innerHTML = ``
+
+        care.lines.forEach(line => {
+            document.getElementById(`care-${carei}`).innerHTML += `<span>${line}</span>`
+        });
+
+        carei++
+    })
+    FOODS.forEach(food => {
+        foodMarket.innerHTML += `
+        <article role="tabpanel">
+                                    <h5>${food.name}</h5>
+                                    <span style="color: green;">$${food.price}</span>
+                                    <button onclick="attemptPurchase('food', ${foodi})">BUY</button>
+                                    <div class="effects" id="food-${foodi}">
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                    </div>
+                                </article>
+        `
+
+        document.getElementById(`food-${foodi}`).innerHTML = ``
+
+        food.lines.forEach(line => {
+            document.getElementById(`food-${foodi}`).innerHTML += `<span>${line}</span>`
+        });
+
+        foodi++
+    })
+    APPLIANCES.forEach(appliance => {
+        applianceMarket.innerHTML += `
+        <article role="tabpanel">
+                                    <h5>${appliance.name}</h5>
+                                    <span style="color: green;">$${appliance.price}</span>
+                                    <button>BUY</button>
+                                    <div class="effects" id="appliance-${appi}">
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                        <span>DEATH</span>
+                                    </div>
+                                </article>
+        `
+
+        document.getElementById(`appliance-${appi}`).innerHTML = ``
+
+        appliance.lines.forEach(line => {
+            document.getElementById(`appliance-${appi}`).innerHTML += `<span>${line}</span>`
+        });
+
+        appi++
+    })
 
 }
 
-let diseaseTick = 0
+let ticks = 0
 function tick() {
 
-    diseaseTick++
+    //addMessage("hey")
+
+    ticks++
+    if (ticks > 1024) {
+        ticks = 1
+    }
 
     tab.innerText = pet.name
 
@@ -81,7 +205,7 @@ function tick() {
     statuslist.innerHTML = ``
     diseaselist.innerHTML = ``
 
-    let variant = variants[pet.variant]
+    variant = variants[pet.variant]
 
     data.last = Date.now()
 
@@ -92,11 +216,11 @@ function tick() {
 
     pet.age += 1
 
-    pet.hunger += decay.hunger * (variant.hungermult * diseaseMults.hunger)
-    pet.thirst += decay.thirst * (variant.thirstmult * diseaseMults.thirst)
-    pet.dirt += decay.dirt * (variant.dirtmult * diseaseMults.dirt)
-    pet.tiredness += decay.tiredness * (variant.tiredmult * diseaseMults.tiredness)
-    pet.happiness += decay.happiness * (variant.happymult * diseaseMults.happiness)
+    pet.hunger += decay.hunger * (variant.hungermult * diseaseMults.hunger * debugmult)
+    pet.thirst += decay.thirst * (variant.thirstmult * diseaseMults.thirst * debugmult)
+    pet.dirt += decay.dirt * (variant.dirtmult * diseaseMults.dirt * debugmult)
+    pet.tiredness += decay.tiredness * (variant.tiredmult * diseaseMults.tiredness * debugmult)
+    pet.happiness += decay.happiness * (variant.happymult * diseaseMults.happiness * debugmult)
 
     let healthProfit = 1
 
@@ -144,11 +268,13 @@ function tick() {
 
     pet.health += healthProfit
 
-    if (diseaseTick >= 20) {
-        diseaseTick = 0
+    if (ticks % 20 == 0) {
         if (getRandomInt(100) <= ((100 - pet.health) / 2)) {
             addDisease(DISEASE_LIST[getRandomInt(DISEASE_LIST.length - 1)], pet.diseases)
         }
+    }
+    if (ticks % 1 == 0) {
+        data.balance++
     }
 
     updatePetDisplay()
@@ -197,6 +323,8 @@ function startgame() {
 
     pet = data.pet
 
+    variant = variants[pet.variant]
+
     tab.innerText = pet.name
 
     document.getElementById("petname").innerText = pet.name
@@ -226,4 +354,41 @@ function startgame() {
 
     tick()
 
+}
+
+/*https://botoxparty.github.io/XP.css/*/
+const tabs = document.querySelectorAll("menu[role=tablist]");
+
+for (let i = 0; i < tabs.length; i++) {
+    const tab = tabs[i];
+
+    const tabButtons = tab.querySelectorAll("menu[role=tablist] > button");
+
+    tabButtons.forEach((btn) =>
+        btn.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            tabButtons.forEach((button) => {
+                if (
+                    button.getAttribute("aria-controls") ===
+                    e.target.getAttribute("aria-controls")
+                ) {
+                    button.setAttribute("aria-selected", true);
+                    openTab(e, tab);
+                } else {
+                    button.setAttribute("aria-selected", false);
+                }
+            });
+        })
+    );
+}
+function openTab(event, tab) {
+    const articles = tab.parentNode.querySelectorAll('[role="tabpanel"]');
+    articles.forEach((p) => {
+        p.setAttribute("hidden", true);
+    });
+    const article = tab.parentNode.querySelector(
+        `[role="tabpanel"]#${event.target.getAttribute("aria-controls")}`
+    );
+    article.removeAttribute("hidden");
 }

@@ -1,0 +1,10 @@
+[
+        {
+        "name": "Hamster Wheel",
+        "class": "appliance",
+        "price": 30,
+        "lines": [
+            "Generate <font color='green'>$$</font> every 10 seconds if your pet isn't tired."
+        ]
+    }
+]
