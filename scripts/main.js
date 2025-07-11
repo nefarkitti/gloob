@@ -146,7 +146,7 @@ function updatePetDisplay() {
     let t = convertSeconds(pet.age)
     age.innerText = `${t.h}h ${t.m}m ${t.s}s`
 
-    balanceEl.innerHTML = `<span style="color: green;">$${data.balance}</span>`
+    balanceEl.innerHTML = `<span style="color: green;">$${Math.floor(data.balance)}</span>`
 
     careMarket.innerHTML = ``
     foodMarket.innerHTML = ``
