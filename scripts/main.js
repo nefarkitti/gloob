@@ -19,21 +19,6 @@ let foodMarket = document.getElementById("foodmarket")
 let applianceMarket = document.getElementById("applianceMarket")
 
 const tab = document.getElementById("title")
-const messages = document.getElementById("messages")
-
-messages.innerHTML = ``
-
-function addMessage(txt) {
-
-    let msg = document.createElement("div")
-    msg.classList.add("message")
-
-    msg.innerHTML = txt
-
-    messages.appendChild(msg)
-
-    messages.scrollTop = messages.scrollHeight
-}
 
 let pet
 let debugmult = 1
@@ -398,17 +383,23 @@ function tick() {
 
     updatePetDisplay()
 
+    let cod = []
+
     if (pet.hunger <= -10) {
         pet.state = "dead"
+        cod.push("Starvation (didn't eat enough)")
     }
     if (pet.thirst <= 0) {
         pet.state = "dead"
+        cod.push("Dehydration (didn't drink enough)")
     }
     if (pet.tiredness >= 110) {
         pet.state = "dead"
+        cod.push("Exhaustion (too much tiredness)")
     }
     if (pet.happiness <= -10) {
         pet.state = "dead"
+        cod.push("Anguish (too little happiness)")
     }
 
     save()
@@ -423,12 +414,18 @@ function tick() {
         tab.innerText = `Dead ${pet.name}`
         pet.killed = Date.now()
         popup("gloob", `
-            <p>${pet.name} has died.</p>
+            <p>${pet.name} has died. It died to:</p>
+            <ul id="reasonsofdeath">
+            </ul>
             <div class="buttons">
             <button onclick="reset()">Accept</button><button onclick="reset()">Mourn</button>
             </div>
             `
             , null, "<img src='assets/tombstone.gif'>")
+        
+        cod.forEach(reason=>{
+            document.getElementById("reasonsofdeath").innerHTML += `<li>${reason}</li>`
+        })
 
     }
 
@@ -456,11 +453,11 @@ function startgame() {
 
         pet.age += since
 
-        pet.hunger += decay.hunger * variant.hungermult
-        pet.thirst += decay.thirst * variant.thirstmult
-        pet.dirt += decay.dirt * variant.dirtmult
-        pet.tiredness += decay.tiredness * variant.tiredmult
-        pet.happiness += decay.happiness * variant.happymult
+        pet.hunger += (decay.hunger * variant.hungermult) * 0.2
+        pet.thirst += (decay.thirst * variant.thirstmult) * 0.2
+        pet.dirt += (decay.dirt * variant.dirtmult) * 0.2
+        pet.tiredness += (decay.tiredness * variant.tiredmult) * 0.2
+        pet.happiness += (decay.happiness * variant.happymult) * 0.2
 
         let err = popup("gloob", `You've been gone for ${since} seconds!`)
         setTimeout(() => {

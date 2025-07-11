@@ -120,22 +120,37 @@ function startup() {
 
     creator = popup("gloob", `
             <p>You are about to hatch a new Gloob. Before doing so, please read and accept the <b>Terms of Service.</b></p>
-            <section class="tabs" style="max-width: 500px">
+            <section class="tabs" style="max-width: 100%">
   <menu role="tablist" aria-label="Sample Tabs">
-    <button role="tab" aria-selected="true" aria-controls="tab-A">Terms of Service</button>
+    <button role="tab" aria-selected="true" aria-controls="tab-A">Terms of Service & Help</button>
   </menu>
   <!-- the tab content -->
   <article role="tabpanel" id="tab-A">
     By accepting these terms, you agree to assume full responsibility for whatever happens to your Gloob during your time owning one.
     NyaCo is not and will not be responsible or liable for any mental, physical or virtual damage caused by the player or the Gloob during the player's
-    ownership of the Gloob.
+    ownership of the Gloob.<br><br>
+    Gloob is about managing and taking care of a pet. When you have a Gloob, you will see their stats on the top left of your screen.
+    <ul>
+    <li><b>HEALTH</b> is affected by a mixture of all stats. It always increases by a small amount, but hitting certain thresholds on 
+    certain stats will start causing it to go down. Your gloob will not die if your health bar is seemingly empty, but every 20 seconds it checks
+    the amount of health missing and uses that for a chance to contract a disease. Diseases can affect any of the stats below negatively, making
+    a gloob's life much harder.</li>
+    <li><b>HUNGER & THIRST</b> slowly go down as time goes on, you can increase both by feeding your gloob with items in the "FOOD" section. Your gloob will die if either their <b>HUNGER</b> or <b>THIRST</b> run out for too long</li>
+    <li><b>DIRT</b> goes up as time goes on. You can keep <b>DIRT</b> low with showers and/or sink baths! Your gloob will die if their <b>DIRT</b> is full for too long</li>
+    <li><b>TIREDNESS</b> similarly, this one also goes up over time. Some foods can decrease it, but the best way is the "SLEEP" option in the "CARE" section. Your gloob will die if their <b>TIREDNESS</b> is full for too long</li>
+    <li><b>HAPPINESS</b> also goes down as time goes on, with solutions such as petting in the "CARE" section or some foods in the "FOOD" section providing happiness. Your gloob will die if their <b>HAPPINESS</b> runs out for too long</li>
+    </ul>
+    To earn money, you can find items in the "Marketplace" that can increase the amount of money you get per second (with the default being +$2/s), whilst also
+    having the possibility of providing different buffs to the gloob itself.<br>
+    <b>Gloobs also live offline.</b>, but the decay on the stats above is heavily reduced to not make it seem like you need to tend to the gloob every waking second.
+    Special effects are also not present offline.
   </article>
 </section>
 <div class="buttons right">
 <input tpye="text" placeholder="Your Name Here" maxlength="24" id="contractee"></input>
 <button id="contract">Sign & Hatch</button></div>
             `,
-        500)
+        800)
 
     if (graveyard.length >= 1) {
         creator.appendChild(

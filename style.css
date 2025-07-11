@@ -276,6 +276,11 @@ font {
     flex-direction: column;
 }
 
+ul {
+    padding: 0;
+    padding-left: 10px;
+}
+
 @keyframes messageSpawn {
     from {
         background: rgb(255, 228, 75);
