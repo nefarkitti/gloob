@@ -36,7 +36,7 @@ function addMessage(txt) {
 }
 
 let pet
-let debugmult = 0
+let debugmult = 1
 let variant
 
 const decay = {
