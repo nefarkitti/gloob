@@ -1,10 +1,89 @@
 [
-        {
+    {
         "name": "Hamster Wheel",
         "class": "appliance",
         "price": 30,
         "lines": [
-            "Generate <font color='green'>$$</font> every 10 seconds if your pet isn't tired."
+            "Generate <font color='green'>$$</font> every 10 seconds if your pet isn't tired"
+        ]
+    },
+    {
+        "name": "Slot Machine",
+        "class": "appliance",
+        "price": 200,
+        "lines": [
+            "Gives an increase to money per second based on health and gives <font color='green'>$$$</font> whenever your pet contracts a disease. No reward without risk!",
+            "(+$2.5/s and +10% income for every 25% health missing), 100$ per disease contracted"
+        ]
+    },
+    {
+        "name": "Oven",
+        "class": "appliance",
+        "price": 100,
+        "lines": [
+            "+0.25x Hunger gain from Food"
+        ]
+    },
+    {
+        "name": "AC",
+        "class": "appliance",
+        "price": 150,
+        "lines": [
+            "Keeps your pet cooler.",
+            "-0.25x Thirst decay"
+        ]
+    },
+    {
+        "name": "Enclosure Decor",
+        "class": "appliance",
+        "price": 50,
+        "lines": [
+            "Makes your pet feel cozy in their home. Look varies with species",
+            "-0.15x Happiness decay"
+        ]
+    },
+    {
+        "name": "Laundering Business",
+        "class": "appliance",
+        "price": 175,
+        "lines": [
+            "30% chance to gain <font color='green'>$$</font> every 20 seconds"
+        ]
+    },
+    {
+        "name": "Gloob Cloning",
+        "class": "appliance",
+        "price": 350,
+        "lines": [
+            "Using cloning technology give your Gloob their own Gloob, giving them the same experience you're going through",
+            "+$2/s, every minute the cloned Gloob changes between the 'DEAD' and 'ALIVE' state at a 50% chance. Every 20 seconds, either gain or lose 15 Happiness depending on the state of the cloned Gloob"
+        ]
+    },
+    {
+        "name": "The Cube",
+        "class": "appliance",
+        "price": 600,
+        "lines": [
+            "Imposing",
+            "+$10/s, +0.5x Happiness decay"
+        ]
+    },
+    {
+        "name": "Cactus",
+        "class": "appliance",
+        "price": 50,
+        "lines": [
+            "Brings good vibes",
+            "+$1/s, -0.1x Happiness decay, -0.1x Tiredness decay"
+        ]
+    },
+    {
+        "name": "A Whole Fucking Chicken",
+        "class": "appliance",
+        "price": 1000,
+        "lines": [
+            "How did it get here??? the eggs sell doe",
+            "+$5/s"
         ]
     }
 ]

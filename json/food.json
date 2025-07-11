@@ -4,12 +4,10 @@
         "class": "food",
         "price": 10,
         "effects": {
-            "hunger": 2,
-            "thirst": -3
+            "hunger": 2
         },
         "lines": [
-            "<font color='green'>Hunger ▲</font>",
-            "<font color='darkred'>Thirst ▼</font>"
+            "<font color='green'>Hunger ▲</font>"
         ]
     },
     {
@@ -18,11 +16,11 @@
         "price": 5,
         "effects": {
             "hunger": 2,
-            "thirst": -10
+            "thirst": -5
         },
         "lines": [
             "<font color='green'>Hunger ▲</font>",
-            "<font color='darkred'>Thirst ▼▼</font>"
+            "<font color='darkred'>Thirst ▼</font>"
         ]
     },
     {
@@ -31,13 +29,11 @@
         "price": 20,
         "effects": {
             "hunger": 5,
-            "thirst": -3,
             "happiness": 4
         },
         "lines": [
             "<font color='green'>Hunger ▲</font>",
-            "<font color='green'>Happiness ▲</font>",
-            "<font color='darkred'>Thirst ▼</font>"
+            "<font color='green'>Happiness ▲</font>"
         ]
     },
     {
@@ -45,7 +41,7 @@
         "class": "food",
         "price": 5,
         "effects": {
-            "hunger": -2,
+            "hunger": -1,
             "thirst": 5,
             "happiness": -4
         },
@@ -60,7 +56,7 @@
         "class": "food",
         "price": 15,
         "effects": {
-            "hunger": -4,
+            "hunger": -1,
             "thirst": 10,
             "happiness": -4,
             "health": 5
@@ -78,7 +74,7 @@
         "price": 60,
         "effects": {
             "hunger": 15,
-            "thirst": -6,
+            "thirst": -3,
             "happiness": 10,
             "tiredness": -10
         },
@@ -95,7 +91,7 @@
         "price": 110,
         "effects": {
             "hunger": 25,
-            "thirst": -10,
+            "thirst": -3.5,
             "happiness": 15,
             "tiredness": -15,
             "health": -10
@@ -106,6 +102,151 @@
             "<font color='darkred'>Health ▼</font>",
             "<font color='darkred'>Thirst ▼</font>",
             "<font color='darkred'>Tiredness ▼</font>"
+        ]
+    },
+    {
+        "name": "Soda",
+        "class": "food",
+        "price": 50,
+        "effects": {
+            "health": -3,
+            "thirst": 8,
+            "happiness": 10,
+            "tiredness": -5
+        },
+        "lines": [
+            "<font color='green'>Thirst ▲</font>",
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='green'>Tiredness ▼</font>",
+            "<font color='darkred'>Health ▼</font>"
+        ]
+    },
+    {
+        "name": "Coffee",
+        "class": "food",
+        "price": 30,
+        "effects": {
+            "thirst": 8,
+            "tiredness": -30
+        },
+        "lines": [
+            "<font class='extra' color='green'>If the gloob species is 'BRAIN', Happiness ▲</font>",
+            "<font color='darkred'>Thirst ▼</font>",
+            "<font color='darkred'>Tiredness ▼▼▼</font>",
+            "<font class='extra' color='darkred'>If the gloob species is 'COFFEE', Happiness ▼▼▼</font>"
+        ]
+    },
+    {
+        "name": "Soup",
+        "class": "food",
+        "price": 50,
+        "effects": {
+            "hunger": 15,
+            "thirst": 10,
+            "health": 12.5
+        },
+        "lines": [
+            "<font class='extra' color='green'>Minute chance to cure a random disease</font>",
+            "<font color='green'>Health ▲</font>",
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='green'>Thirst ▲</font>",
+            "<font class='extra' color='darkred'>If the gloob species is 'CARBUNJ', Dirt ▲</font>"
+        ]
+    },
+    {
+        "name": "MAW OF GLUTTONY",
+        "class": "food",
+        "price": 250,
+        "effects": {
+            "hunger": 50,
+            "thirst": 50,
+            "health": -20
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲▲</font>",
+            "<font color='green'>Thirst ▲▲▲</font>",
+            "<font color='darkred'>Health ▼▼</font>",
+            "<font class='extra' color='darkred'>Small chance of contracting another disease on use</font>"
+        ]
+    },
+    {
+        "name": "Spinach",
+        "class": "food",
+        "price": 10,
+        "effects": {
+            "health": 15,
+            "hunger": 6
+        },
+        "lines": [
+            "<font color='green'>Health ▲▲</font>",
+            "<font color='green'>Hunger ▲</font>"
+        ]
+    },
+    {
+        "name": "Sparkling Water",
+        "class": "food",
+        "price": 5,
+        "effects": {
+            "thirst": 6,
+            "happiness": -6
+        },
+        "lines": [
+            "<font color='green'>Thirst ▲</font>",
+            "<font color='darkred'>Happiness ▼</font>"
+        ]
+    },
+    {
+        "name": "Rotting Food",
+        "class": "food",
+        "price": 30,
+        "effects": {
+            "hunger": -20,
+            "thirst": -10,
+            "happiness": -20
+        },
+        "lines": [
+            "<font class='extra' color='green'>If the gloob pet is a detritivore (MOSS BALL, MOLD COLONY, VIOLET), these become additive instead</font>",
+            "<font color='darkred'>Hunger ▼▼</font>",
+            "<font color='darkred'>Thirst ▼</font>",
+            "<font color='darkred'>Happiness ▼▼</font>"
+        ]
+    },
+    {
+        "name": "Floor Chicken",
+        "class": "food",
+        "price": 15,
+        "effects": {
+            "hunger": 20,
+            "dirt": 40
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='darkred'>Dirt ▲▲▲▲</font>"
+        ]
+    },
+    {
+        "name": "Dirty Water",
+        "class": "food",
+        "price": 10,
+        "effects": {
+            "hunger": 20,
+            "dirt": 20,
+            "health": -8
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='darkred'>Dirt ▲▲▲</font>",
+            "<font color='darkred'>Health ▼</font>"
+        ]
+    },
+    {
+        "name": "Refreshing Brew",
+        "class": "food",
+        "price": 999,
+        "effects": {},
+        "lines": [
+            "<font class='extra'>KILLS YOUR PET INSTANTLYmakes your Pet super happy! Buynow!BuyNowBuyNow. NOT IN ANY WAY AFFILIATED WITH SODA. CO. NONONONONONO BuyNow Buy</font>"
+            
         ]
     }
 ]

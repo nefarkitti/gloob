@@ -5,9 +5,23 @@ const DISEASE_LIST = [
     "Lazy"
 ]
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+
 function addDisease(disease, diseases) {
 
+    if (disease == "random") {
+        disease = DISEASE_LIST[getRandomInt(DISEASE_LIST.length - 1)]
+    }
+
     if (!diseases.includes(disease)) {
+
+        if (data.appliances.includes("Slot Machine")) {
+            data.balance += 100
+        }
+
         diseases.push(disease)
     }
 

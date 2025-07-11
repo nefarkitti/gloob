@@ -68,6 +68,7 @@ function handleGloobName() {
                 "health": 100,
 
                 "diseases": [],
+                "effects": []
 
             }
 

@@ -17,4 +17,18 @@ function procAppliances(t) {
 
     }
 
+    if (applis.includes('Laundering Business')) {
+
+        if (t % 20 == 0) {
+
+            if (Math.random()*100 <= 30) {
+
+                data.balance += 40
+
+            }
+
+        }
+
+    }
+
 }

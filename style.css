@@ -257,6 +257,25 @@ font {
     background: linear-gradient(180deg, #fcfcfe, #f4f3ee);
 }
 
+.buybtn {
+    cursor: pointer;
+    background: linear-gradient(180deg,#86ff30,#31cf05 86%,#017a09);
+    font-weight: 900;
+    color: white;
+}
+.buybtn[disabled], .buybtn:disabled {
+    background: linear-gradient(180deg,#fff,#ecebe5 86%,#d8d0c4);
+    font-weight: 100;
+    color: black;
+    filter: opacity(50%);
+    cursor: unset;
+}
+
+#sleepList {
+    display: flex;
+    flex-direction: column;
+}
+
 @keyframes messageSpawn {
     from {
         background: rgb(255, 228, 75);

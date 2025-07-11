@@ -16,13 +16,9 @@
         "name": "SLEEP",
         "class": "care",
         "price": 15,
-        "effects": {
-            "happiness": 5,
-            "tiredness": -5,
-            "health": 10
-        },
+        "effects": {},
         "lines": [
-            "<font color='green'>Health ▲▲</font>",
+            "<font color='green'>Health ▲</font>",
             "<font color='green'>Happiness ▲</font>",
             "<font color='green'>Tiredness ▼</font>",
             "<font color='darkred'>Dirt ▲</font>",

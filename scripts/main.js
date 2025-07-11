@@ -110,7 +110,23 @@ function attemptPurchase(type, index) {
 
 }
 
+let diseaseMults = {
+    "health": 1,
+    "hunger": 1,
+    "thirst": 1,
+    "dirt": 1,
+    "tiredness": 1,
+    "happiness": 1
+}
+
 function updatePetDisplay() {
+
+    diseaselist.innerHTML = ``
+
+    pet.diseases.forEach(disease => {
+        diseaselist.innerHTML += `<span>${disease.toUpperCase()}</span>`
+        setDiseaseMult(disease, diseaseMults)
+    });
 
     pet.hunger = clamp(pet.hunger, -10, 100)
     pet.thirst = clamp(pet.thirst, 0, 100)
@@ -143,7 +159,7 @@ function updatePetDisplay() {
         <article role="tabpanel">
                                     <h5>${care.name}</h5>
                                     <span style="color: green;">$${care.price}</span>
-                                    <button onclick="attemptPurchase('care', ${carei})">BUY</button>
+                                    <button class="buybtn" onclick="attemptPurchase('care', ${carei})">BUY</button>
                                     <div class="effects" id="care-${carei}">
                                         <span>DEATH</span>
                                         <span>DEATH</span>
@@ -167,7 +183,7 @@ function updatePetDisplay() {
         <article role="tabpanel">
                                     <h5>${food.name}</h5>
                                     <span style="color: green;">$${food.price}</span>
-                                    <button onclick="attemptPurchase('food', ${foodi})">BUY</button>
+                                    <button class="buybtn" onclick="attemptPurchase('food', ${foodi})">BUY</button>
                                     <div class="effects" id="food-${foodi}">
                                         <span>DEATH</span>
                                         <span>DEATH</span>
@@ -186,10 +202,10 @@ function updatePetDisplay() {
 
         foodi++
     })
-    let disable = ""
-    let hiddentext = ""
-    let buttontext = "BUY"
     APPLIANCES.forEach(appliance => {
+        let disable = ""
+        let hiddentext = ""
+        let buttontext = "BUY"
         if (data.appliances.includes(appliance.name)) {
             disable = "disabled"
             buttontext = "PURCHASED"
@@ -199,7 +215,7 @@ function updatePetDisplay() {
         <article role="tabpanel">
                                     <h5>${appliance.name}</h5>
                                     <span style="color: green;${hiddentext}">$${appliance.price}</span>
-                                    <button onclick="attemptPurchase('appliance', ${appi})" ${disable}>${buttontext}</button>
+                                    <button class="buybtn" onclick="attemptPurchase('appliance', ${appi})" ${disable}>${buttontext}</button>
                                     <div class="effects" id="appliance-${appi}">
                                         <span>DEATH</span>
                                         <span>DEATH</span>
@@ -222,6 +238,7 @@ function updatePetDisplay() {
 }
 
 let ticks = 0
+let clone = "ALIVE"
 function tick() {
 
     //addMessage("hey")
@@ -231,17 +248,29 @@ function tick() {
         ticks = 1
     }
 
+    //updateStocks()
     procAppliances(ticks)
 
     tab.innerText = pet.name
 
-    let diseaseMults = {
+    diseaseMults = {
         "health": 1,
         "hunger": 1,
         "thirst": 1,
         "dirt": 1,
         "tiredness": 1,
         "happiness": 1
+    }
+
+    if (data.appliances.includes("Enclosure Decor")) {
+        diseaseMults.happiness -= 0.15
+    }
+    if (data.appliances.includes("Cactus")) {
+        diseaseMults.happiness -= 0.1
+        diseaseMults.tiredness -= 0.1
+    }
+    if (data.appliances.includes("AC")) {
+        diseaseMults.thirst -= 0.25
     }
 
     statuslist.innerHTML = ``
@@ -315,8 +344,56 @@ function tick() {
             addDisease(DISEASE_LIST[getRandomInt(DISEASE_LIST.length - 1)], pet.diseases)
         }
     }
-    if (ticks % 1 == 0) {
-        data.balance += 2
+
+    data.balance += 2
+
+    if (data.appliances.includes("Gloob Cloning")) {
+
+        if (ticks % 20 == 0) {
+
+            if (clone == "ALIVE") {
+                pet.happiness += 15
+            } else if (clone == "DEAD") {
+                pet.happiness -= 15
+            }
+
+        }
+
+        if (ticks % 60 == 0) {
+
+            if (Math.random() >= 0.5) {
+                clone = "ALIVE"
+            } else {
+                clone = "DEAD"
+            }
+
+        }
+
+    }
+    if (data.appliances.includes("Cactus")) {
+        data.balance += 1
+    }
+    if (data.appliances.includes("The Cube")) {
+        data.balance += 10
+    }
+    if (data.appliances.includes("A Whole Fucking Chicken")) {
+        data.balance += 5
+    }
+    if (data.appliances.includes("Slot Machine")) {
+
+        if (pet.health <= 75) {
+            data.balance += 2.5
+        }
+        if (pet.health <= 50) {
+            data.balance += 2.5
+        }
+        if (pet.health <= 25) {
+            data.balance += 2.5
+        }
+        if (pet.health <= 0) {
+            data.balance += 2.5
+        }
+
     }
 
     updatePetDisplay()
