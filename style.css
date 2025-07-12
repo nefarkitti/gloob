@@ -281,6 +281,12 @@ ul {
     padding-left: 10px;
 }
 
+.statlist img {
+    object-fit: contain;
+    height: 100px;
+    margin-top: -20px;
+}
+
 @keyframes messageSpawn {
     from {
         background: rgb(255, 228, 75);

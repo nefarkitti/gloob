@@ -488,6 +488,12 @@ function startgame() {
 
     variant = variants[pet.variant]
 
+    if ("icon" in variant) {
+        document.getElementById("pet-icon").src = `assets/pets/${variant.name.toLowerCase()}.png`
+    } else {
+        document.getElementById("pet-icon").remove()
+    }
+
     tab.innerText = pet.name
 
     document.getElementById("petname").innerText = pet.name

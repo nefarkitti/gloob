@@ -2,6 +2,7 @@
 
     {
         "name": "slug",
+        "icon": true,
 
         "hungermult": 0.5,
         "thirstmult": 2,
@@ -14,6 +15,7 @@
     
     {
         "name": "moss ball",
+        "icon": true,
         
         "hungermult": 1.25,
         "thirstmult": 1.25,
@@ -26,6 +28,7 @@
 
     {
         "name": "floog",
+        "icon": true,
         
         "hungermult": 1,
         "thirstmult": 1,
