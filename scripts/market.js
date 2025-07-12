@@ -160,7 +160,9 @@ function purchase(item) {
                 let diseasemult = 1
                 let recencymult = 1
                 if (item.name in counts) {
-                    recencymult -= 0.2 * counts[item.name]
+
+                    recencymult -= 0.1 * counts[item.name]
+
                 }
                 if (key == "hunger" && data.appliances.includes("Oven")) {
                     diseasemult += 0.25
@@ -168,7 +170,7 @@ function purchase(item) {
                 if (pet.diseases.includes("Tape Worm")) {
                     diseasemult -= 0.50
                 }
-                pet[key] += clamp(value * (diseasemult * recencymult), 0, 100)
+                pet[key] += value * (diseasemult * clamp(recencymult, 0, 1))
             }
         }
 
