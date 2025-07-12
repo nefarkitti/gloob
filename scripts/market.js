@@ -76,6 +76,10 @@ function purchaseSleep() {
 
 function purchase(item) {
 
+    if (pet.diseases.includes("Greed")) {
+        pet.happiness -= 1 * (item.price / 4)
+    }
+
     if (item.class == "appliance") {
 
         console.log("purchasing")
@@ -126,6 +130,16 @@ function purchase(item) {
                 updateSleepPricing(document.getElementById("sleeprange").value)
 
                 break
+            case "pills":
+                if (Math.random() * 100 <= 50) {
+                    pet.diseases.splice(getRandomInt(pet.diseases.length - 1), 1)
+                }
+                break
+            case "the vaccine":
+                pet.diseases.splice(getRandomInt(pet.diseases.length - 1), 1)
+                if (Math.random() * 100 <= 5) {
+                    addDisease("random", pet.diseases)
+                }
             default:
                 break
         }
@@ -134,14 +148,27 @@ function purchase(item) {
 
         data.balance -= item.price
 
+        let counts = getFoodCount()
+
+        pet.recentfoods.push(item.name)
+        if (pet.recentfoods.length >= 11) {
+            pet.recentfoods.shift()
+        }
+
         for (const [key, value] of Object.entries(item.effects)) {
             if (key in pet) {
-                pet[key] += value
-                if (key == "hunger" && data.appliances.includes("Oven")) {
-                    pet[key] += value * 1.25
-                } else {
-                    pet[key] += value
+                let diseasemult = 1
+                let recencymult = 1
+                if (item.name in counts) {
+                    recencymult -= 0.2 * counts[item.name]
                 }
+                if (key == "hunger" && data.appliances.includes("Oven")) {
+                    diseasemult += 0.25
+                }
+                if (pet.diseases.includes("Tape Worm")) {
+                    diseasemult -= 0.50
+                }
+                pet[key] += clamp(value * (diseasemult * recencymult), 0, 100)
             }
         }
 

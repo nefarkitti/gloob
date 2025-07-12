@@ -2,6 +2,13 @@ const DISEASE_LIST = [
     "Leech Seed",
     "Leukemia",
     "Tape Worm",
+    "Ate a Magnet",
+    "Greed",
+    "Cold",
+    "Carbunj Flu",
+    "Mold Poisoning",
+    "Pharaoh's Curse",
+    "Gacha Fan",
     "Lazy"
 ]
 
@@ -30,8 +37,31 @@ function addDisease(disease, diseases) {
 function setDiseaseMult(disease, mults) {
 
     switch (disease) {
+        case "Pharaoh's Curse":
+            let disamount = 0.2 * pet.diseases.length
+            mults.hunger += disamount
+            mults.thirst += disamount
+            mults.tiredness += disamount
+            mults.dirt += disamount
+            mults.happiness += disamount
+            break
+        case "Mold Poisoining":
+            mults.hunger += 0.5
+            break
+        case "Carbunj Flu":
+            if (pet.thirst <= 75) {
+                mults.hunger += 0.5
+                mults.happiness += 0.5
+            }
+            break
         case "Leech Seed":
             mults.thirst += 1
+            break
+        case "Cold":
+            mults.tiredness += 1
+            break
+        case "Ate a Magnet":
+            mults.dirt += 1
             break
         case "Leukemia":
             // positive health in half

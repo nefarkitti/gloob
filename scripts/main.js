@@ -34,6 +34,24 @@ const decay = {
 
 }
 
+function getFoodCount() {
+
+    let ob = {}
+
+    pet.recentfoods.forEach(fooditem=>{
+
+        if (fooditem in ob) {
+            ob[fooditem] += 1
+        } else {
+            ob[fooditem] = 1
+        }
+
+    })
+
+    return ob
+
+}
+
 function clamp(val, min, max) {
 
     if (val < min) {
@@ -322,6 +340,22 @@ function tick() {
         tab.innerText = ["Miserable", tab.innerText].join(' ');
     }
 
+    if (pet.diseases.includes("Cold")) {
+        healthProfit -= 1
+    }
+
+    if (pet.diseases.includes("Mold Poisoning")) {
+        if (healthProfit >= 1) {
+            healthProfit *= 0.8
+        }
+    }
+    if (pet.diseases.includes("Leukemia")) {
+        if (healthProfit >= 1) {
+            healthProfit *= 0.5
+            healthProfit -= 1
+        }
+    }
+
     pet.health += healthProfit
 
     if (ticks % 20 == 0) {
@@ -330,7 +364,7 @@ function tick() {
         }
     }
 
-    data.balance += 5
+    data.balance += 50
 
     if (data.appliances.includes("Gloob Cloning")) {
 
@@ -356,27 +390,40 @@ function tick() {
 
     }
     if (data.appliances.includes("Cactus")) {
-        data.balance += 5
+        data.balance += 2
     }
     if (data.appliances.includes("The Cube")) {
-        data.balance += 20
+        data.balance += 25
     }
     if (data.appliances.includes("A Whole Fucking Chicken")) {
-        data.balance += 30
+        data.balance += 25
     }
     if (data.appliances.includes("Slot Machine")) {
 
         if (pet.health <= 75) {
-            data.balance += 10
+            data.balance += 5
         }
         if (pet.health <= 50) {
-            data.balance += 10
+            data.balance += 5
         }
         if (pet.health <= 25) {
-            data.balance += 10
+            data.balance += 5
         }
         if (pet.health <= 0) {
-            data.balance += 10
+            data.balance += 5
+        }
+
+    }
+
+    if (pet.diseases.includes("Gacha Fan") && ticks % 20 == 0) {
+
+        if (Math.random() * 100 <= 25) {
+            if (data.balance >= 200) {
+                data.balance -= 200
+                 pet.happiness += getRandomInt(10) + 10
+            } else {
+                pet.happiness -= getRandomInt(10) + 10
+            }
         }
 
     }
@@ -422,8 +469,8 @@ function tick() {
             </div>
             `
             , null, "<img src='assets/tombstone.gif'>")
-        
-        cod.forEach(reason=>{
+
+        cod.forEach(reason => {
             document.getElementById("reasonsofdeath").innerHTML += `<li>${reason}</li>`
         })
 

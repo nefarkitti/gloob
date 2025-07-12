@@ -68,7 +68,8 @@ function handleGloobName() {
                 "health": 100,
 
                 "diseases": [],
-                "effects": []
+                "effects": [],
+                "recentfoods": [],
 
             }
 
@@ -135,7 +136,7 @@ function startup() {
     certain stats will start causing it to go down. Your gloob will not die if your health bar is seemingly empty, but every 20 seconds it checks
     the amount of health missing and uses that for a chance to contract a disease. Diseases can affect any of the stats below negatively, making
     a gloob's life much harder.</li>
-    <li><b>HUNGER & THIRST</b> slowly go down as time goes on, you can increase both by feeding your gloob with items in the "FOOD" section. Your gloob will die if either their <b>HUNGER</b> or <b>THIRST</b> run out for too long</li>
+    <li><b>HUNGER & THIRST</b> slowly go down as time goes on, you can increase both by feeding your gloob with items in the "FOOD" section. Your gloob will die if either their <b>HUNGER</b> or <b>THIRST</b> run out for too long.<br><font color='darkred'><b>Food becomes increasingly less effective the more it's fed to the gloob.</b></font></li>
     <li><b>DIRT</b> goes up as time goes on. You can keep <b>DIRT</b> low with showers and/or sink baths! Your gloob will die if their <b>DIRT</b> is full for too long</li>
     <li><b>TIREDNESS</b> similarly, this one also goes up over time. Some foods can decrease it, but the best way is the "SLEEP" option in the "CARE" section. Your gloob will die if their <b>TIREDNESS</b> is full for too long</li>
     <li><b>HAPPINESS</b> also goes down as time goes on, with solutions such as petting in the "CARE" section or some foods in the "FOOD" section providing happiness. Your gloob will die if their <b>HAPPINESS</b> runs out for too long</li>

@@ -23,7 +23,7 @@ function procAppliances(t) {
 
             if (Math.random()*100 <= 30) {
 
-                data.balance += 40
+                data.balance += 50
 
             }
 
