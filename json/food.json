@@ -57,7 +57,7 @@
         "price": 15,
         "effects": {
             "thirst": 10,
-            "happiness": -4,
+            "happiness": 4,
             "health": 5
         },
         "lines": [
