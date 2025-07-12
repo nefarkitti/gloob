@@ -506,6 +506,8 @@ function startgame() {
 
         pet.age += since
 
+        data.balance += (3 * since) * 0.05
+
         pet.hunger += (decay.hunger * variant.hungermult) * 0.2
         pet.thirst += (decay.thirst * variant.thirstmult) * 0.2
         pet.dirt += (decay.dirt * variant.dirtmult) * 0.2
