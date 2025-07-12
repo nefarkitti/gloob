@@ -115,8 +115,8 @@ function updatePetDisplay() {
 
     pet.hunger = clamp(pet.hunger, -10, 100)
     pet.thirst = clamp(pet.thirst, 0, 100)
-    pet.dirt = clamp(pet.dirt, -20, 100)
-    pet.tiredness = clamp(pet.tiredness, 0, 110)
+    pet.dirt = clamp(pet.dirt, -50, 100)
+    pet.tiredness = clamp(pet.tiredness, -50, 110)
     pet.happiness = clamp(pet.happiness, -10, 100)
     pet.health = clamp(pet.health, 0, 100)
 
@@ -330,14 +330,14 @@ function tick() {
         }
     }
 
-    data.balance += 2
+    data.balance += 5
 
     if (data.appliances.includes("Gloob Cloning")) {
 
         if (ticks % 20 == 0) {
 
             if (clone == "ALIVE") {
-                pet.happiness += 15
+                pet.happiness += 30
             } else if (clone == "DEAD") {
                 pet.happiness -= 15
             }
@@ -356,27 +356,27 @@ function tick() {
 
     }
     if (data.appliances.includes("Cactus")) {
-        data.balance += 1
+        data.balance += 5
     }
     if (data.appliances.includes("The Cube")) {
-        data.balance += 10
+        data.balance += 20
     }
     if (data.appliances.includes("A Whole Fucking Chicken")) {
-        data.balance += 5
+        data.balance += 30
     }
     if (data.appliances.includes("Slot Machine")) {
 
         if (pet.health <= 75) {
-            data.balance += 2.5
+            data.balance += 10
         }
         if (pet.health <= 50) {
-            data.balance += 2.5
+            data.balance += 10
         }
         if (pet.health <= 25) {
-            data.balance += 2.5
+            data.balance += 10
         }
         if (pet.health <= 0) {
-            data.balance += 2.5
+            data.balance += 10
         }
 
     }

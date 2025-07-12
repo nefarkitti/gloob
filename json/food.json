@@ -56,7 +56,6 @@
         "class": "food",
         "price": 15,
         "effects": {
-            "hunger": -1,
             "thirst": 10,
             "happiness": -4,
             "health": 5
@@ -64,8 +63,7 @@
         "lines": [
             "<font color='green'>Health ▲</font>",
             "<font color='green'>Thirst ▲</font>",
-            "<font color='green'>Happiness ▲</font>",
-            "<font color='darkred'>Hunger ▼</font>"
+            "<font color='green'>Happiness ▲</font>"
         ]
     },
     {
@@ -229,7 +227,7 @@
         "class": "food",
         "price": 10,
         "effects": {
-            "hunger": 20,
+            "thirst": 20,
             "dirt": 20,
             "health": -8
         },

@@ -34,7 +34,7 @@ function updateSleepPricing(val) {
     getPrice = ((15 * val) + (10 * val)) - 10
     healthVal = 3 * val
     happyVal = 3 * val
-    tiredVal = -4 * val
+    tiredVal = -15 * val
     dirtVal = 2.5 * val
 
     lst.innerHTML = `
