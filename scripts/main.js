@@ -364,7 +364,7 @@ function tick() {
         }
     }
 
-    data.balance += 50
+    data.balance += 3
 
     if (data.appliances.includes("Gloob Cloning")) {
 
