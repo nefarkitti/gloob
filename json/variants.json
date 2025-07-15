@@ -196,6 +196,18 @@
     },
 
     {
+        "name": "cello",
+        
+        "hungermult": 10,
+        "thirstmult": 10,
+        "dirtmult": 10,
+        "conditionmult": 1,
+        "tiredmult": 10,
+        "happymult": 10
+
+    },
+
+    {
         "name": "klurb",
         
         "hungermult": 1,
