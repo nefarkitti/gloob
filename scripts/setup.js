@@ -4,6 +4,7 @@ let variants
 let CARES
 let FOODS
 let APPLIANCES
+let REGIONS
 
 let loader = popup("gloob", "<p>Loading... </p><progress style='width: 100%'></progress>")
 let creator
@@ -46,8 +47,9 @@ function handleGloobName() {
 
             "last": Date.now(),
 
-            "balance": 100,
+            "balance": 200,
             "appliances": [],
+            "items": {},
 
             "pet": {
 
@@ -124,6 +126,7 @@ function startup() {
             <section class="tabs" style="max-width: 100%">
   <menu role="tablist" aria-label="Sample Tabs">
     <button role="tab" aria-selected="true" aria-controls="tab-A">Terms of Service & Help</button>
+    <button role="tab" aria-controls="tab-B">Update Log</button>
   </menu>
   <!-- the tab content -->
   <article role="tabpanel" id="tab-A">
@@ -145,6 +148,9 @@ function startup() {
     having the possibility of providing different buffs to the gloob itself.<br>
     <b>Gloobs also live offline.</b>, but the decay on the stats above is heavily reduced to not make it seem like you need to tend to the gloob every waking second.
     Special effects are also not present offline.
+  </article>
+  <article role="tabpanel" id="tab-B" hidden="true">
+  FUCK YOU 1NNING
   </article>
 </section>
 <div class="buttons right">
@@ -174,6 +180,11 @@ function load() {
         if (getSave != null) {
             data = JSON.parse(getSave)
             console.log("save found!")
+
+            if (!("items" in data)) {
+                data.items = {}
+            } // gloobraiser parity
+
             setTimeout(() => {
                 loader.remove()
                 startgame()
@@ -201,14 +212,23 @@ axios.get("json/variants.json").then(res => {
 
             axios.get("json/appliances.json").then(appliances => {
 
-                variants = res.data
-                CARES = cares.data.sort((a, b) => a.price - b.price);
-                FOODS = foods.data.sort((a, b) => a.price - b.price);
-                APPLIANCES = appliances.data.sort((a, b) => a.price - b.price);
+                axios.get("json/regions.json").then(regions => {
 
-                console.log(variants)
+                    axios.get("json/items.json").then(items => {
 
-                load()
+                        variants = res.data
+                        CARES = cares.data.sort((a, b) => a.price - b.price);
+                        FOODS = foods.data.sort((a, b) => a.price - b.price);
+                        APPLIANCES = appliances.data.sort((a, b) => a.price - b.price);
+                        REGIONS = regions.data
+
+                        loadRegions(REGIONS, items.data)
+
+                        load()
+
+                    })
+
+                })
 
             })
 

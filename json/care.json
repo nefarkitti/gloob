@@ -1,11 +1,39 @@
 [
     {
-        "name": "PET",
+        "name": "ALCOHOL",
         "class": "care",
-        "price": 10,
+        "price": 15,
+        "effects": {
+            "happiness": 30,
+            "tiredness": 20
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲▲▲</font>",
+            "<font color='darkred'>Tiredness ▲▲</font>",
+            "<font class='extra'>Risk of cancer</font>"
+        ]
+    },
+    {
+        "name": "CIGARETTES",
+        "class": "care",
+        "price": 5,
         "effects": {
             "happiness": 10,
-            "tiredness": -5
+            "tiredness": -20
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='green'>Tiredness ▼▼▼</font>",
+            "<font class='extra'>Risk of cancer</font>"
+        ]
+    },
+    {
+        "name": "PET",
+        "class": "care",
+        "price": 1,
+        "effects": {
+            "happiness": 1,
+            "tiredness": -2
         },
         "lines": [
             "<font color='green'>Happiness ▲</font>",
@@ -84,6 +112,22 @@
             "<font color='green'>Health ▲</font>",
             "<font color='darkred'>Happiness ▼</font>",
             "<font class='extra' color='darkred'>Very small chance of contracting another disease on use</font>"
+        ]
+    },
+    {
+        "name": "TRIP TO THE VETS",
+        "class": "care",
+        "price": 2000,
+        "effects": {
+            "health": 100,
+            "hunger": 100,
+            "thirst": 100,
+            "dirt": -200,
+            "tiredness": -200,
+            "happiness": 100
+        },
+        "lines": [
+            "<font color='green'>Cures 3 random diseases and resets everything to default.</font>"
         ]
     }
 ]

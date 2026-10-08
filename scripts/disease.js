@@ -9,7 +9,9 @@ const DISEASE_LIST = [
     "Mold Poisoning",
     "Pharaoh's Curse",
     "Gacha Fan",
-    "Lazy"
+    "Lazy",
+    "Fear",
+    "Cancer",
 ]
 
 function getRandomInt(max) {
@@ -30,6 +32,7 @@ function addDisease(disease, diseases) {
         }
 
         diseases.push(disease)
+        playSoundEffect('/assets/sfx/disease.mp3')
     }
 
 }
@@ -70,6 +73,14 @@ function setDiseaseMult(disease, mults) {
             mults.tiredness += 1.5
         case "Tape Worm":
             mults.hunger += 1
+            break
+        case "Fear":
+            mults.tiredness *= -1
+            mults.happiness = 0.5
+            break
+        case "Cancer":
+            mults.health += 1
+            mults.happiness += 1
             break
         default:
             break

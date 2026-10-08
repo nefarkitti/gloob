@@ -232,7 +232,7 @@
             "health": -8
         },
         "lines": [
-            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='green'>Thirst ▲▲</font>",
             "<font color='darkred'>Dirt ▲▲▲</font>",
             "<font color='darkred'>Health ▼</font>"
         ]
@@ -252,5 +252,57 @@
         "price": 4000,
         "effects": {},
         "lines": []
+    },
+    {
+        "name": "Candy Corn",
+        "class": "food",
+        "price": 10,
+        "effects": {
+            "hunger": 10,
+            "happiness": 15,
+            "tiredness": -5,
+            "health": -5
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='green'>Happiness ▲▲▲</font>",
+            "<font color='green'>Tiredness ▼</font>",
+            "<font color='darkred'>Health ▼</font>"
+        ]
+    },
+    {
+        "name": "Chocolate",
+        "class": "food",
+        "price": 15,
+        "effects": {
+            "hunger": 15,
+            "happiness": 20,
+            "tiredness": -5,
+            "health": -10
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲▲</font>",
+            "<font color='green'>Happiness ▲▲▲</font>",
+            "<font color='green'>Tiredness ▼</font>",
+            "<font color='darkred'>Health ▼▼</font>",
+            "<font class='extra'>Maybe don't feed a dog this</font>"
+        ]
+    },
+    {
+        "name": "Bacon Sauce",
+        "class": "food",
+        "price": 19.94,
+        "effects": {
+            "hunger": 20,
+            "happiness": 20,
+            "tiredness": -5,
+            "health": -10
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='green'>Tiredness ▼</font>",
+            "<font color='darkred'>Health ▼▼</font>"
+        ]
     }
 ]

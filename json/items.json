@@ -1,0 +1,172 @@
+{
+    "stick": {
+        "name": "Stick",
+        "sell": 5,
+        "effects": {
+            "happiness": 10
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲</font>"
+        ]
+    },
+    "bone": {
+        "name": "Bone",
+        "sell": 5,
+        "effects": {
+            "happiness": 10
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲</font>"
+        ]
+    },
+    "candle": {
+        "name": "Candle",
+        "sell": 10,
+        "effects": {
+            "happiness": 10
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲</font>"
+        ]
+    },
+    "pumpkin": {
+        "name": "Pumpkin",
+        "sell": 10,
+        "effects": {
+            "hunger": 10,
+            "happiness": 10
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲</font>",
+            "<font color='green'>Happiness ▲</font>"
+        ]
+    },
+    "gold_ring": {
+        "name": "Diamond Ring",
+        "sell": 150,
+        "effects": {
+            "happiness": 5
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲</font>",
+            "<font class='extra'>I guess it makes both of you happy?</font>"
+        ]
+    },
+    "candy_corn": {
+        "name": "Candy Corn",
+        "sell": 5,
+        "effects": {
+            "hunger": 10,
+            "happiness": 5
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲</font>",
+            "<font color='green'>Happiness ▲</font>"
+        ]
+    },
+    "orbs": {
+        "name": "Orbs",
+        "sell": 5,
+        "effects": {
+            "hunger": 10,
+            "happiness": 5
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲</font>",
+            "<font color='green'>Happiness ▲</font>"
+        ]
+    },
+    "bucket_of_candy": {
+        "name": "Bucket of Candy",
+        "sell": 20,
+        "effects": {
+            "hunger": 30,
+            "happiness": 15,
+            "health": -10
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲▲</font>",
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='darkred'>Health ▼</font>"
+        ]
+    },
+    "lollipop": {
+        "name": "Rainbow Lollipop",
+        "sell": 15,
+        "effects": {
+            "hunger": 15,
+            "happiness": 10,
+            "health": -5
+        },
+        "lines": [
+            "<font color='green'>Hunger ▲▲</font>",
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='darkred'>Health ▼</font>"
+        ]
+    },
+    "cash": {
+        "name": "Found Cash",
+        "sell": 75,
+        "effects": {
+            "hunger": -10,
+            "happiness": 20,
+            "health": -20
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='darkred'>Hunger ▼▼</font>",
+            "<font color='darkred'>Health ▼</font>",
+            "<font class='extra'>Not recommended as food usually.</font>"
+        ]
+    },
+    "scary_mask": {
+        "name": "Scary Mask",
+        "sell": 15,
+        "effects": {
+            "hunger": -10,
+            "happiness": 15,
+            "health": -15
+        },
+        "lines": [
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='darkred'>Hunger ▼▼</font>",
+            "<font color='darkred'>Health ▼</font>",
+            "<font class='extra'>Not recommended as food usually.</font>"
+        ]
+    },
+    "wrapper": {
+        "name": "Candy Wrapper",
+        "sell": 1,
+        "effects": {
+            "hunger": -10,
+            "happiness": -15,
+            "health": -15
+        },
+        "lines": [
+            "<font color='green'>Happiness ▼▼</font>",
+            "<font color='green'>Hunger ▼▼</font>",
+            "<font color='darkred'>Health ▼</font>",
+            "<font class='extra'>I mean come on, pick up after yourself!</font>"
+        ]
+    },
+    "rat": {
+        "name": "Rat",
+        "sell": -10,
+        "effects": {
+            "hunger": 0
+        },
+        "lines": [
+            "<font class='extra'>Huh?</font>"
+        ]
+    },
+    "gold_tooth": {
+        "name": "Gold Tooth",
+        "sell": 100,
+        "effects": {
+            "health": -15
+        },
+        "lines": [
+            "<font class='extra'>shiver me timbers</font>"
+        ]
+    }
+}

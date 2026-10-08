@@ -140,6 +140,14 @@ function purchase(item) {
                 if (Math.random() * 100 <= 5) {
                     addDisease("random", pet.diseases)
                 }
+            case "cigarettes":
+                if (Math.random() * 100 <= 30) {
+                    addDisease("Cancer")
+                }
+            case "alcohol":
+                if (Math.random() * 100 <= 10) {
+                    addDisease("Cancer")
+                }
             default:
                 break
         }
@@ -164,6 +172,7 @@ function purchase(item) {
                     recencymult -= 0.1 * counts[item.name]
 
                 }
+                recencymult = 1
                 if (key == "hunger" && data.appliances.includes("Oven")) {
                     diseasemult += 0.25
                 }
@@ -223,6 +232,17 @@ function purchase(item) {
                 DISEASE_LIST.forEach(disease => {
                     addDisease(disease, pet.diseases)
                 })
+                break
+            case "chocolate":
+                if (variant.name.toLowerCase() == "dog") {
+                    pet.hunger -= 100
+                    pet.thirst -= 100
+                    pet.health -= 100
+                    pet.happiness -= 100
+                    DISEASE_LIST.forEach(disease => {
+                        addDisease(disease, pet.diseases)
+                    })
+                }
                 break
             default:
                 break

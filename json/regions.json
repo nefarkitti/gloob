@@ -1,0 +1,91 @@
+[
+    {
+        "name": "Graveyard",
+        "cost": {
+            "tiredness": 40,
+            "happiness": -10
+        },
+        "lines": [
+            "A pretty scary place. There's dead people and stuff like that.",
+            "<font color='darkred'>Happiness ▼</font>",
+            "<font color='darkred'>Tiredness ▲▲▲</font>"
+        ],
+        "items": {
+            "bone": 100,
+            "stick": 100,
+            "candle": 50,
+            "pumpkin": 20,
+            "gold_ring": 1,
+            "gold_tooth": 5
+        },
+        "drops": [2, 4]
+    },
+    {
+        "name": "Trick or Treatin",
+        "cost": {
+            "tiredness": 40,
+            "happiness": 10
+        },
+        "lines": [
+            "Get some smaller candy bits for your Gloob",
+            "<font color='green'>Happiness ▲</font>",
+            "<font color='darkred'>Tiredness ▲▲▲▲</font>"
+        ],
+        "items": {
+            "candy_corn": 100,
+            "orbs": 100,
+            "bucket_of_candy": 5,
+            "lollipop": 50,
+            "cash": 5,
+            "scary_mask": 20,
+            "wrapper": 15,
+            "rat": 1
+        },
+        "drops": [3, 5]
+    },
+    {
+        "name": "Haunted House",
+        "cost": {
+            "tiredness": 70,
+            "happiness": 25
+        },
+        "lines": [
+            "OoooooOooooo!",
+            "<font color='green'>Happiness ▲▲</font>",
+            "<font color='darkred'>Tiredness ▲▲▲▲</font>"
+        ],
+        "items": {
+            "bone": 100,
+            "stick": 100,
+            "candle": 50,
+            "pumpkin": 20,
+            "gold_ring": 1,
+            "gold_tooth": 5,
+            "candy_corn": 100,
+            "orbs": 100,
+            "bucket_of_candy": 5,
+            "lollipop": 50,
+            "cash": 5,
+            "scary_mask": 20,
+            "wrapper": 15,
+            "rat": 1
+        },
+        "drops": [4, 6]
+    },
+    {
+        "name": "Park",
+        "cost": {
+            "tiredness": 30,
+            "happiness": 30
+        },
+        "lines": [
+            "Lots of people and their Gloobs gather here.",
+            "<font color='green'>Happiness ▲▲▲</font>",
+            "<font color='darkred'>Tiredness ▲▲▲</font>"
+        ],
+        "items": {
+            "stick": 100
+        },
+        "drops": [2, 4]
+    }
+]

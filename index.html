@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <!--<script src="https://tholman.com/blue-screen-of-death/bsod.js" defer></script>-->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="scripts/exploration.js" defer></script>
     <script src="scripts/appliances.js" defer></script>
     <script src="scripts/disease.js" defer></script>
     <script src="scripts/time.js" defer></script>
@@ -17,6 +18,7 @@
     <script src="scripts/market.js" defer></script>
     <!--<script src="scripts/stocks.js" defer></script>-->
     <script src="scripts/main.js" defer></script>
+    <script src="scripts/tabs.js" defer></script>
 </head>
 
 <body>
@@ -172,7 +174,9 @@
                 <div class="title-bar">
                     <div class="title-bar-text">debug</div>
                 </div>
-                <div class="window-body">
+                <div class="window-body" style="display: flex;flex-direction: column;">
+                    <span>Running Gloob v1.1</span>
+                    <hr>
                     <div class="buttons center">
                         <button onclick="reset()">reset all data</button>
                     </div>
@@ -193,10 +197,13 @@
                     <div class="window-content">
                         <span style="margin: 0;margin-bottom: 5px;display: block;" id="balance">Balance: 0</span>
                         <menu role="tablist">
+                            <button aria-controls="items" id="items-display" onclick="clearnotif()">Items</button>
                             <button aria-selected="true" aria-controls="care">Care</button>
                             <button aria-controls="food">Food</button>
                             <button aria-controls="marketplace">Marketplace</button>
                             <!--<button aria-controls="stocks">Stock Market</button>-->
+                            <button aria-controls="explore">Explore</button>
+                            <button aria-controls="arena" style="display: none;">Arena</button>
                         </menu>
                         <article role="tabpanel" id="care">
                             <h3 style="margin: 0;">Care</h3>
@@ -234,6 +241,45 @@
                         </article>
                         <article role="tabpanel" id="stocks" hidden="true">
                             <h3>Stocks</h3>
+                        </article>
+                        <article role="tabpanel" id="explore" hidden="true">
+                            <h3 style="margin: 0;">Explore</h3>
+                            <span class="extra">If your Gloob is too tired for an area it will refuse exploration.</span>
+                            <div class="market-grid" id="regions-grid">
+
+                                <article role="tabpanel">
+                                    <h5>Graveyard</h5>
+                                    <button>Explore</button>
+                                </article>
+                                <article role="tabpanel">
+                                    <h5>Park</h5>
+                                    <button>Explore</button>
+                                </article>
+
+                            </div>
+                        </article>
+                        <article role="tabpanel" id="arena" hidden="true">
+                            <h3 style="margin: 0;">Arena</h3>
+                            <div class="market-grid" id="">
+
+                                <article role="tabpanel">
+                                    <h5>[Pa]</h5>
+                                    <button>Explore</button>
+                                </article>
+
+                            </div>
+                        </article>
+                        <article role="tabpanel" id="items" hidden="true">
+                            <h3 style="margin: 0;">Items</h3>
+                            <div class="market-grid" id="items-grid">
+
+                                <article role="tabpanel">
+                                    <h5>[Pa]</h5>
+                                    <button>Use</button>
+                                    <button>Sell</button>
+                                </article>
+
+                            </div>
                         </article>
                     </div>
                 </div>

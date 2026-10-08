@@ -78,5 +78,21 @@
         "lines": [
             "How did it get here??? the eggs sell doe"
         ]
+    },
+    {
+        "name": "Jack-O-Lantern",
+        "class": "appliance",
+        "price": 666,
+        "lines": [
+            "Scary"
+        ]
+    },
+    {
+        "name": "Ritual Candles",
+        "class": "appliance",
+        "price": 66,
+        "lines": [
+            "Scary"
+        ]
     }
 ]

@@ -21,8 +21,10 @@ let applianceMarket = document.getElementById("applianceMarket")
 const tab = document.getElementById("title")
 
 let pet
-let debugmult = 1
+let debugmult = 0.9
 let variant
+let horror = 0
+let tickrate = 1
 
 const decay = {
 
@@ -38,7 +40,7 @@ function getFoodCount() {
 
     let ob = {}
 
-    pet.recentfoods.forEach(fooditem=>{
+    pet.recentfoods.forEach(fooditem => {
 
         if (fooditem in ob) {
             ob[fooditem] += 1
@@ -73,8 +75,11 @@ function attemptPurchase(type, index) {
 
         if (data.balance >= item.price) {
 
+            playSoundEffect("/assets/sfx/click.mp3")
             purchase(item)
 
+        } else {
+            playSoundEffect("/assets/sfx/error.mp3")
         }
 
     }
@@ -83,9 +88,11 @@ function attemptPurchase(type, index) {
         let item = CARES[index]
 
         if (data.balance >= item.price) {
-
+            playSoundEffect("/assets/sfx/click.mp3")
             purchase(item)
 
+        } else {
+            playSoundEffect("/assets/sfx/error.mp3")
         }
 
     }
@@ -102,9 +109,11 @@ function attemptPurchase(type, index) {
             if (data.balance >= item.price) {
 
                 console.log("afforable")
-
+                playSoundEffect("/assets/sfx/item.mp3")
                 purchase(item)
 
+            } else {
+                playSoundEffect("/assets/sfx/error.mp3")
             }
 
         }
@@ -127,7 +136,7 @@ function updatePetDisplay() {
     diseaselist.innerHTML = ``
 
     pet.diseases.forEach(disease => {
-        diseaselist.innerHTML += `<span>${disease.toUpperCase()}</span>`
+        diseaselist.innerHTML += `<img src="assets/diseases/${disease.toUpperCase()}.png">`
         setDiseaseMult(disease, diseaseMults)
     });
 
@@ -246,6 +255,93 @@ function tick() {
 
     //addMessage("hey")
 
+    horror++
+    if (Math.random() * 100 <= 1) {
+        horror /= 5
+        console.log("reset")
+    }
+
+    if (data.appliances.includes('Ritual Candles')) {
+        horror++
+    }
+    if (data.appliances.includes('Jack-O-Lantern')) {
+        horror++
+    }
+
+    if (Math.random() * 1000 <= horror / 2) {
+
+        if (Math.random() >= 0.5) {
+
+            let golden = document.createElement("img")
+            golden.style.position = "absolute"
+            golden.style.width = "100vw"
+            golden.style.height = "100dvh"
+            golden.style.zIndex = 1000
+
+            document.body.appendChild(golden)
+
+            golden.src = "/assets/scares/Golden_Freddy.webp"
+
+            setTimeout(() => {
+                golden.remove()
+            }, 50);
+
+        }
+        if (Math.random() >= 0.5) {
+
+            let golden = document.createElement("img")
+            golden.style.position = "absolute"
+            golden.style.width = "100vw"
+            golden.style.height = "15dvh"
+            golden.style.zIndex = 10000000000
+            golden.style.bottom = 0
+
+            document.body.appendChild(golden)
+
+            golden.src = "/assets/scares/skele.gif"
+
+            setTimeout(() => {
+                golden.remove()
+            }, 1500);
+
+        }
+        if (Math.random() >= 0.5) {
+
+            let sound = document.createElement("audio")
+            sound.src = `/assets/scares/sound/s${getRandomIntInclusive(1, 8)}.mp3`
+            sound.setAttribute("playsinline", "")
+            document.body.appendChild(sound)
+            sound.play()
+
+            setTimeout(() => {
+                sound.remove()
+            }, 60000);
+
+        }
+        if (Math.random() >= 0.5) {
+
+            let img = document.createElement("img")
+            img.style.position = "absolute"
+            img.style.width = "100px"
+            img.style.height = "100px"
+
+            document.body.appendChild(img)
+
+            img.src = `/assets/scares/stickers/s${getRandomIntInclusive(1, 10)}.jpg`
+
+            img.style.transform = "translate(-50%, -50%)"
+            img.style.top = `calc(100dvh * ${Math.random()})`
+            img.style.left = `calc(100vw * ${Math.random()})`
+            img.style.zIndex = `1000000`
+
+            setTimeout(() => {
+                img.remove()
+            }, 300000);
+
+        }
+
+    }
+
     ticks++
     if (ticks > 1024) {
         ticks = 1
@@ -300,17 +396,17 @@ function tick() {
 
     if (pet.hunger <= 50) {
         healthProfit -= 1
-        statuslist.innerHTML += `<span>STARVING</span>`
+        statuslist.innerHTML += `<img src="assets/status/STARVING.png">`
         tab.innerText = ["Starving", tab.innerText].join(' ');
     }
     if (pet.thirst <= 60) {
         healthProfit -= 1
-        statuslist.innerHTML += `<span>PARCHED</span>`
+        statuslist.innerHTML += `<img src="assets/status/PARCHED.png">`
         tab.innerText = ["Parched", tab.innerText].join(' ');
     }
     if (pet.dirt >= 30) {
         healthProfit -= 1
-        statuslist.innerHTML += `<span>DIRTY</span>`
+        statuslist.innerHTML += `<img src="assets/status/DIRTY.png">`
         tab.innerText = ["Dirty", tab.innerText].join(' ');
     }
     if (pet.dirt >= 60) {
@@ -320,7 +416,7 @@ function tick() {
         healthProfit -= 1
     }
     if (pet.tiredness >= 50) {
-        statuslist.innerHTML += `<span>SLEEPY</span>`
+        statuslist.innerHTML += `<img src="assets/status/SLEEPY.png">`
         tab.innerText = ["Sleepy", tab.innerText].join(' ');
     }
     if (pet.tiredness >= 60) {
@@ -330,13 +426,13 @@ function tick() {
         healthProfit -= 2
     }
     if (pet.happiness <= 50) {
-        statuslist.innerHTML += `<span>SAD</span>`
+        statuslist.innerHTML += `<img src="assets/status/SAD.png">`
         tab.innerText = ["Sad", tab.innerText].join(' ');
     } else if (pet.happiness <= 25) {
-        statuslist.innerHTML += `<span>DEPRESSED</span>`
+        statuslist.innerHTML += `<img src="assets/status/DEPRESSED.png">`
         tab.innerText = ["Depressed", tab.innerText].join(' ');
     } else if (pet.happiness <= 10) {
-        statuslist.innerHTML += `<span>MISERABLE</span>`
+        statuslist.innerHTML += `<img src="assets/status/MISERABLE.png">`
         tab.innerText = ["Miserable", tab.innerText].join(' ');
     }
 
@@ -420,7 +516,7 @@ function tick() {
         if (Math.random() * 100 <= 25) {
             if (data.balance >= 200) {
                 data.balance -= 200
-                 pet.happiness += getRandomInt(10) + 10
+                pet.happiness += getRandomInt(10) + 10
             } else {
                 pet.happiness -= getRandomInt(10) + 10
             }
@@ -454,10 +550,10 @@ function tick() {
     if (pet.state != "dead") {
         setTimeout(() => {
             tick()
-        }, 1000);
+        }, 1000 * tickrate);
     } else {
 
-        statuslist.innerHTML = `<span>DEAD</span>`
+        statuslist.innerHTML = `<img src="assets/status/DEAD.png">`
         tab.innerText = `Dead ${pet.name}`
         pet.killed = Date.now()
         popup("gloob", `
@@ -521,13 +617,14 @@ function startgame() {
 
     }
 
+    updateItemsDisplay()
     updatePetDisplay()
 
     tick()
 
 }
 
-/*https://botoxparty.github.io/XP.css/*/
+/*/*https://botoxparty.github.io/XP.css/
 const tabs = document.querySelectorAll("menu[role=tablist]");
 
 for (let i = 0; i < tabs.length; i++) {
@@ -562,4 +659,19 @@ function openTab(event, tab) {
         `[role="tabpanel"]#${event.target.getAttribute("aria-controls")}`
     );
     article.removeAttribute("hidden");
+}
+*/
+
+function playSoundEffect(url) {
+
+    let sound = document.createElement("audio")
+    sound.src = url
+    sound.setAttribute("playsinline", "")
+    document.body.appendChild(sound)
+    sound.play()
+
+    setTimeout(() => {
+        sound.remove()
+    }, 3000);
+
 }
