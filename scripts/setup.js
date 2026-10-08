@@ -153,6 +153,10 @@ function startup() {
   FUCK YOU 1NNING
   </article>
 </section>
+<div class="btns" id="btns">
+<a href="https://nefarkitti.dev/" target="_blank"><img src="https://nefarkitti.github.io/btnlocker/btns/nefarkitti.gif"></a>
+<a href="/"><img src="https://nefarkitti.github.io/btnlocker/btns/efc.gif"></a>
+</div>
 <div class="buttons right">
 <input tpye="text" placeholder="Your Name Here" maxlength="24" id="contractee"></input>
 <button id="contract">Sign & Hatch</button></div>
