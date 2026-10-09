@@ -32,7 +32,7 @@ function addDisease(disease, diseases) {
         }
 
         diseases.push(disease)
-        playSoundEffect('/assets/sfx/disease.mp3')
+        playSoundEffect('assets/sfx/disease.mp3')
     }
 
 }

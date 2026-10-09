@@ -75,11 +75,11 @@ function attemptPurchase(type, index) {
 
         if (data.balance >= item.price) {
 
-            playSoundEffect("/assets/sfx/click.mp3")
+            playSoundEffect("assets/sfx/click.mp3")
             purchase(item)
 
         } else {
-            playSoundEffect("/assets/sfx/error.mp3")
+            playSoundEffect("assets/sfx/error.mp3")
         }
 
     }
@@ -88,11 +88,11 @@ function attemptPurchase(type, index) {
         let item = CARES[index]
 
         if (data.balance >= item.price) {
-            playSoundEffect("/assets/sfx/click.mp3")
+            playSoundEffect("assets/sfx/click.mp3")
             purchase(item)
 
         } else {
-            playSoundEffect("/assets/sfx/error.mp3")
+            playSoundEffect("assets/sfx/error.mp3")
         }
 
     }
@@ -109,11 +109,11 @@ function attemptPurchase(type, index) {
             if (data.balance >= item.price) {
 
                 console.log("afforable")
-                playSoundEffect("/assets/sfx/item.mp3")
+                playSoundEffect("assets/sfx/item.mp3")
                 purchase(item)
 
             } else {
-                playSoundEffect("/assets/sfx/error.mp3")
+                playSoundEffect("assets/sfx/error.mp3")
             }
 
         }
@@ -280,7 +280,7 @@ function tick() {
 
             document.body.appendChild(golden)
 
-            golden.src = "/assets/scares/Golden_Freddy.webp"
+            golden.src = "assets/scares/Golden_Freddy.webp"
 
             setTimeout(() => {
                 golden.remove()
@@ -298,7 +298,7 @@ function tick() {
 
             document.body.appendChild(golden)
 
-            golden.src = "/assets/scares/skele.gif"
+            golden.src = "assets/scares/skele.gif"
 
             setTimeout(() => {
                 golden.remove()
@@ -308,7 +308,7 @@ function tick() {
         if (Math.random() >= 0.5) {
 
             let sound = document.createElement("audio")
-            sound.src = `/assets/scares/sound/s${getRandomIntInclusive(1, 8)}.mp3`
+            sound.src = `assets/scares/sound/s${getRandomIntInclusive(1, 8)}.mp3`
             sound.setAttribute("playsinline", "")
             document.body.appendChild(sound)
             sound.play()
@@ -327,7 +327,7 @@ function tick() {
 
             document.body.appendChild(img)
 
-            img.src = `/assets/scares/stickers/s${getRandomIntInclusive(1, 10)}.jpg`
+            img.src = `assets/scares/stickers/s${getRandomIntInclusive(1, 10)}.jpg`
 
             img.style.transform = "translate(-50%, -50%)"
             img.style.top = `calc(100dvh * ${Math.random()})`
