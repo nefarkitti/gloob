@@ -301,6 +301,7 @@ ul {
 
 @media (max-width: 500px) {
     .overlay {
+        position: fixed;
         flex-direction: column;
     }
     .window {
