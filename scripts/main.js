@@ -21,10 +21,10 @@ let applianceMarket = document.getElementById("applianceMarket")
 const tab = document.getElementById("title")
 
 let pet
-let debugmult = 0.9
+let debugmult = 0 //0.9
 let variant
 let horror = 0
-let tickrate = 1
+let tickrate = 1 
 
 const decay = {
 
